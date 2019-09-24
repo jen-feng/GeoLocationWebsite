@@ -4,7 +4,7 @@ html, body {
 }
 
 .body-content {
-	background-image: url(prism_large.png);
+	background-image: url(registration_background.png);
 	background-repeat: repeat-x;
 	background-size: inherit;
 	width: 100%;
