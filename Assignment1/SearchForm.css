@@ -1,30 +1,161 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 70px 80px;
-    text-decoration: none;
-    font-size: 30px;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-color: #111;
-  }
+html, body {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-style: normal;
+	height: 100%;
+}
 
-  .footer {
+.logo {
+	margin: 0;
+	width: 100%;
+	background-color: #fff; '
+	float: left;
+}
+
+img {
+	height: 5em;
+}
+
+.menu {
+	display: inline-block;
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #46301E;
+ }
+  
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 20px 10px;
+	text-decoration: none;
+	font-size: 20px;
+	width: 100px;
+}
+
+li a:hover {
+	background-color: #111;
+}
+
+.search-section {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-image: url(search_background.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+
+.form-content {
+	text-align: center;
+	overflow: hidden;
+	display: block;
+}
+
+.title {
+	text-align: center;
+	padding-top: 10px;
+	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
+}
+.search-container {
+	margin: auto;
+	text-align: center;
+	display: block;
+}
+
+.searchbar {
+	text-align: right;
+	display: inline-block;
+	margin: auto;
+	text-align: center;
+	width: 70%;
+}
+
+.ratings-container {
+	display: inline-block;
+	transition: all 200ms ease-out;
+	text-align: left;
+	margin-top: 10px;
+}
+
+#ratings {
+	border-radius: 5px;
+	font-size: 15px;
+	height: 48px;
+	width: 110px;
+	padding-left: 10px;
+	padding-right: 10px;
+	outline: none;
+	border-color: #F8DCBD;
+}
+
+
+.submit-button {
+	margin: auto;
+	padding-top: 10px;
+	display: block;
+}
+
+input[type="search"] {
+	font-family: Georgia,Times,times,serif;
+	border-radius: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 48px;
+	min-height: 40px;
+	font-size: 0.9em;
+	width: 100%;
+	outline: none;
+	border-style: solid;
+	border-color: #F8DCBD;
+	transition: all 200ms ease-out;
+}
+
+#ratings:hover, input[type="search"]:hover {
+	box-shadow: 2px 2px 2px 2px rgba(0.5, 0.5, 0, 0.5), 0 6px 20px 0 rgba(0, 0.5, 0.5, 0.5);
+}
+
+input[type="submit"] {
+	border-radius: 5px;
+	margin: auto;
+	overflow: hidden;
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 25px;
+	height: 50px;
+	width: 100px;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+  
+.form-content {
+	text-align: center;
+}  
+  
+form.form-content::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -33,79 +164,4 @@ ul {
     color: white;
     text-align: center;
  }
-
- input[type="text"] {
-    text-align: center;
-    font-size: 100px;
-    height: 200px;
-    width: 500px;
-
-  }
-  input[type="submit"] {
-    text-align: center;
-    font-size: 25px;
-    height: 50px;
-    width: 100px;
-
-  }
-  
-  .searchbar {
-    text-align: left;
-    font-size: 30;
-    margin: 100px;
-    display: inline-block;
-  }
-
-  /* Dropdown Button */
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 50px;
-    border: none;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-  .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-  }
-
  
