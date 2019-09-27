@@ -1,6 +1,52 @@
 html, body {
-	background-color: #e6e6e6;
+	background-color: #fff;
 	margin: 0;
+	margin-left: 10px;
+    margin-right: 10px;
+}
+
+.logo {
+	margin: 0;
+	width: 100%;
+	background-color: #fff; 
+	float: left;
+}
+
+img {
+	height: 5em;
+}
+
+.menu {
+	display: inline-block;
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #46301E;
+ }
+  
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 20px 10px;
+	text-decoration: none;
+	font-size: 20px;
+	width: 100px;
+}
+
+li a:hover {
+	background-color: #111;
 }
 
 .body-content {
