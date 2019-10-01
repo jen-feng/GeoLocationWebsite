@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="RegistrationPage.css" >
+<html>
+  <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+	  Submission Form
+	</title>
+  </header>
+  <body>
+    <header id="header" class="group" role="banner">
+    <div class="logo">
+	  <img src="logo.png">
+	</div>
+	<div class="menu">  
+      <ul>
+        <li><a href="SearchForm.html">Home</a></li>
+        <li><a href="">News</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">About</a></li>
+		<li><a href="RegistrationPage.html">Registration</a></li>
+      </ul>
+    </div>
+    </header>
+  <div class="body-content">
+    <div class="container-box">
+	  <div class="auth-form">
+        <p class="title-form">Shelter Submission</p>  
+        <form action="Submission" method="post" name="SubmissionForm">
+	      <div class="input-wrap">
+		      <input type="text" class="rf-input fname-input" name="subname" placeholder="Shelter name">
+		      <label class="rf-label fname-label">Shelter name</label>
+	      </div>
+	      <div class="input-wrap">
+	        <input type="text" class="rf-input lname-input" name="desc" placeholder="Description">
+		    <label class="rf-label lname-label">Description</label>
+	      </div>
+	      <div class="input-wrap">
+	        <input type="text" class="rf-input email-input" name="coordinates" placeholder="Coordinates">
+	   	    <label class="rf-label email-label">Coordinates</label>
+	      </div>
+	      <div class="input-wrap">
+	        <input type="file" class="rf-input psw-input" name="usrpsw" placeholder="Password">
+		    <label class="rf-label password-label">Image</label>
+	      </div>
+
+		  <input type="submit" name="Submission" value="Submission">
+	    </form>
+	  </div>
+    </div>
+  </body>
+  <footer>
+    <div class="container-footer">
+      All rights reserved
+    </div>
+  </footer>
+</html>
