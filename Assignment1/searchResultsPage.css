@@ -1,6 +1,6 @@
 html, body {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
 	height: 100%;
 	margin-top: 0;
 }
@@ -47,7 +47,7 @@ li a:hover {
 .search-section {
 	height: 100%;
 	width: 100%;
-	overflow: hidden;
+	overflow: auto;
 	background-image: url(search_background.jpg);
 	background-position: center center;
 	background-size: cover;
@@ -70,6 +70,8 @@ li a:hover {
 	display: block;
 	padding-bottom: 15px;
 	padding-top: 10px;
+	position: sticky;
+	top: 10px;
 }
 
 .searchbar {
@@ -172,8 +174,8 @@ form.form-content::after {
 }
 
 .map-border {
-  text-align: center;
-  padding: 5px 5px;
+	text-align: center;
+	padding: 5px 5px;
 }
 
 #map_title {
@@ -184,10 +186,66 @@ form.form-content::after {
 	width: 100%;
 }
 
+.results-content {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
 table {
 	width: 100%;
-	float: left;
 	background-color: white;
+	border-collapse: collapse;
+}
+
+th, td {
+	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
+	border: solid 1px lightgray;
+}
+
+tr:nth-child(even) {
+	background-color: #e6e6e6;
+}
+
+
+.store-container {
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+}
+
+.store-image {
+	display: inline-block;
+	float: left;
+	width: 30%;
+}
+
+.store-name {
+	text-align: left;
+	vertical-align: middle;
+	height: 100%;
+	box-sizing: border-box;
+	display: table-cell;
+}
+
+#store_image{
+	width: 100%;
+}
+
+#more {
+	display: none;
+}
+
+#mybtn {
+}
+
+h1 {
+	margin: 0;
+	font-size: 25px;
+}
+
+
+p {
+	margin: auto;
 }
 
 .footer {
