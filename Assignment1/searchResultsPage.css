@@ -39,10 +39,9 @@ li a {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 20px 10px;
+	padding: 20px 30px;
 	text-decoration: none;
 	font-size: 20px;
-	width: 110px;
 }
 
 li a:hover {
@@ -275,6 +274,10 @@ p.page {
 		display: block;
 		width: 100%;
 		text-align: center;
+	}
+
+	li a {
+		padding: 20px 10px;
 	}
 
 	h1 {

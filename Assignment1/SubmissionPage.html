@@ -1,57 +1,59 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="RegistrationPage.css" >
+<link rel="stylesheet" href="submissionPage.css" >
 <html>
-  <header>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-	  Submission Form
-	</title>
-  </header>
+      Submission Form
+    </title>
+  </head>
   <body>
     <header id="header" class="group" role="banner">
-    <div class="logo">
-	  <img src="logo.png">
-	</div>
-	<div class="menu">  
-      <ul>
-        <li><a href="SearchForm.html">Home</a></li>
-        <li><a href="">News</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">About</a></li>
-		<li><a href="RegistrationPage.html">Registration</a></li>
-      </ul>
-    </div>
+      <div class="logo">
+        <img src="logo.png" id="img_logo">
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="SubmissionPage.html">Store Submission</a></li>
+          <li><a href="RegistrationPage.html">Registration</a></li>
+        </ul>
+      </div>
     </header>
-  <div class="body-content">
-    <div class="container-box">
-	  <div class="auth-form">
-        <p class="title-form">Shelter Submission</p>  
-        <form action="Submission" method="post" name="SubmissionForm">
-	      <div class="input-wrap">
-		      <input type="text" class="rf-input fname-input" name="subname" placeholder="Shelter name">
-		      <label class="rf-label fname-label">Shelter name</label>
-	      </div>
-	      <div class="input-wrap">
-	        <input type="text" class="rf-input lname-input" name="desc" placeholder="Description">
-		    <label class="rf-label lname-label">Description</label>
-	      </div>
-	      <div class="input-wrap">
-	        <input type="text" class="rf-input email-input" name="coordinates" placeholder="Coordinates">
-	   	    <label class="rf-label email-label">Coordinates</label>
-	      </div>
-	      <div class="input-wrap">
-	        <input type="file" class="rf-input psw-input" name="usrpsw" placeholder="Password">
-		    <label class="rf-label password-label">Image</label>
-	      </div>
-
-		  <input type="submit" name="Submission" value="Submission">
-	    </form>
-	  </div>
+    <div class="body-content">
+      <div class="container-box">
+        <div class="auth-form">
+          <p class="title-form">Store Submission</p>
+          <form action="registration" method="post" name="RegistrationForm">
+            <div class="input-wrap">
+              <label class="rf-label">Store name</label>
+              <input type="text" class="rf-input" name="storename" placeholder="Store name">
+            </div>
+            <div class="input-wrap">
+              <label class="rf-label">Description</label>
+              <textarea class="rf-input description" name="description" placeholder="Description"></textarea>
+            </div>
+            <div class="input-wrap">
+              <label class="rf-label">Coordinates</label>
+              <div class="coordinates-container">
+                <input type="number" class="rf-input longitude" name="longitude" placeholder="Longitude">
+                <input type="number" class="rf-input latitude" name="latitude" placeholder="Latitude">
+              </div>
+            </div>
+            <div class="input-wrap">
+              <label class="rf-label">Upload image</label>
+              <input type="file" class="rf-input image" name="imageupload">
+            </div>
+            <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
+            <input type="submit" name="register" value="register">
+          </form>
+       </div>
     </div>
+    <footer>
+      <div class="footer">
+        All rights reserved
+      </div>
+    </footer>
   </body>
-  <footer>
-    <div class="container-footer">
-      All rights reserved
-    </div>
-  </footer>
 </html>
