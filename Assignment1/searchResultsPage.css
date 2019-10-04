@@ -1,5 +1,6 @@
 html, body {
 	height: 100%;
+	background-color: #fff;
 }
 
 * {
@@ -9,7 +10,7 @@ html, body {
 .logo {
 	margin: 0;
 	width: 100%;
-	background-color: #fff; '
+	background-color: #fff; 
 	float: left;
 }
 
@@ -65,7 +66,7 @@ h1 a:hover {
 	background-image: url(search_background.jpg);
 	background-position: center center;
 	background-size: cover;
-	padding-bottom: auto;
+	padding-bottom: 0;
 }
 
 .form-content {
@@ -231,11 +232,11 @@ th, td {
 	display: table-cell;
 }
 
-#store_image{
+.store-image img {
 	width: 100%;
 }
 
-#more {
+.more {
 	display: none;
 }
 
