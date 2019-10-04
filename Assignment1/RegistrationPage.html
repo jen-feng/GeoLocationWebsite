@@ -1,58 +1,56 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="RegistrationPage.css" >
+<link rel="stylesheet" href="registrationPage.css" >
 <html>
-  <header>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-	  Registration Form
-	</title>
-  </header>
+      Registration Form
+    </title>
+  </head>
   <body>
     <header id="header" class="group" role="banner">
-    <div class="logo">
-	  <img src="logo.png">
-	</div>
-	<div class="menu">  
-      <ul>
-        <li><a href="SearchForm.html">Home</a></li>
-        <li><a href="">News</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">About</a></li>
-		<li><a href="RegistrationPage.html">Registration</a></li>
-      </ul>
-    </div>
+      <div class="logo">
+        <img src="logo.png" id="img_logo">
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="submissionPage.html">Store Submission</a></li>
+          <li><a href="registrationPage.html">Registration</a></li>
+        </ul>
+      </div>
     </header>
-  <div class="body-content">
-    <div class="container-box">
-	  <div class="auth-form">
-        <p class="title-form">Account Registration</p>  
-        <form action="registration" method="post" name="RegistrationForm">
-	      <div class="input-wrap">
-		      <input type="text" class="rf-input fname-input" name="firstname" placeholder="First name">
-		      <label class="rf-label fname-label">First name</label>
-	      </div>
-	      <div class="input-wrap">
-	        <input type="text" class="rf-input lname-input" name="lastname" placeholder="Last name">
-		    <label class="rf-label lname-label">Last name</label>
-	      </div>
-	      <div class="input-wrap">
-	        <input type="email" class="rf-input email-input" name="email" placeholder="Email address">
-	   	    <label class="rf-label email-label">Email address</label>
-	      </div>
-	      <div class="input-wrap">
-	        <input type="password" class="rf-input psw-input" name="usrpsw" placeholder="Password">
-		    <label class="rf-label password-label">Password</label>
-	      </div>
-		  <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.
-		  </span>
-		  <input type="submit" name="register" value="register">
-	    </form>
-	  </div>
+    <div class="body-content">
+      <div class="container-box">
+        <div class="auth-form">
+          <p class="title-form">Account Registration</p>
+          <form action="registration" method="post" name="RegistrationForm">
+            <div class="input-wrap">
+              <input type="text" class="rf-input fname-input" name="firstname" placeholder="First name">
+              <label class="rf-label fname-label">First name</label>
+            </div>
+            <div class="input-wrap">
+              <input type="text" class="rf-input lname-input" name="lastname" placeholder="Last name">
+              <label class="rf-label lname-label">Last name</label>
+            </div>
+            <div class="input-wrap">
+              <input type="email" class="rf-input email-input" name="email" placeholder="Email address">
+              <label class="rf-label email-label">Email address</label>
+            </div>
+            <div class="input-wrap">
+              <input type="password" class="rf-input psw-input" name="usrpsw" placeholder="Password">
+              <label class="rf-label password-label">Password</label>
+            </div>
+            <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
+            <input type="submit" name="register" value="register">
+          </form>
+       </div>
     </div>
+    <footer>
+      <div class="footer">
+        All rights reserved
+      </div>
+    </footer>
   </body>
-  <footer>
-    <div class="container-footer">
-      All rights reserved
-    </div>
-  </footer>
 </html>

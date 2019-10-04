@@ -1,8 +1,10 @@
 html, body {
-	margin-left: 10px;
-	margin-right: 10px;
 	height: 100%;
-	margin-top: 0;
+	background-color: #fff;
+}
+
+* {
+	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 
 .logo {
@@ -39,10 +41,9 @@ li a {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 20px 10px;
+	padding: 20px 30px;
 	text-decoration: none;
 	font-size: 20px;
-	width: 100px;
 }
 
 li a:hover {
@@ -66,7 +67,6 @@ li a:hover {
 .title {
 	text-align: center;
 	padding-top: 10px;
-	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 .search-container {
 	margin: auto;
@@ -74,93 +74,41 @@ li a:hover {
 	display: block;
 }
 
-.searchbar {
-	text-align: right;
-	display: inline-block;
-	margin: auto;
-	text-align: center;
-	width: 70%;
-}
-
-.ratings-container {
-	display: inline-block;
-	transition: all 200ms ease-out;
-	text-align: left;
-	margin-top: 10px;
-}
-
-#ratings {
-	border-radius: 5px;
-	font-size: 15px;
-	height: 48px;
-	width: 110px;
-	padding-left: 10px;
-	padding-right: 10px;
-	outline: none;
-	border-color: #F8DCBD;
-}
-
-
-.submit-button {
-	margin: auto;
-	padding-top: 10px;
-	display: block;
-}
-
-input[type="search"] {
-	font-family: Georgia,Times,times,serif;
-	border-radius: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-	height: 48px;
-	min-height: 40px;
-	font-size: 0.9em;
+.footer {
+	padding-top: 20px;
+	bottom: 0;
 	width: 100%;
-	outline: none;
-	border-style: solid;
-	border-color: #F8DCBD;
-	transition: all 200ms ease-out;
-}
-
-#ratings:hover, input[type="search"]:hover {
-	box-shadow: 2px 2px 2px 2px rgba(0.5, 0.5, 0, 0.5), 0 6px 20px 0 rgba(0, 0.5, 0.5, 0.5);
-}
-
-input[type="submit"] {
-	border-radius: 5px;
-	margin: auto;
-	overflow: hidden;
-	background-color: #4CAF50; /* Green */
-	border: none;
+	background-color: #46301E;
 	color: white;
 	text-align: center;
-	text-decoration: none;
-	font-size: 25px;
-	height: 50px;
-	width: 100px;
+	padding-bottom: 20px;
 }
-
-input[type="submit"]:hover {
-	background-color: #3e8e41;
-}
-  
-.form-content {
-	text-align: center;
-}  
-  
-form.form-content::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: center;
- }
  
+@media(max-width: 600px) {
+	#img_logo {
+		height: 3em;
+	}
+
+	ul a {
+		font-size: 80%;
+		float: none;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	li a {
+		padding: 20px 10px;
+	}
+
+	h1 {
+		font-size: 100%;
+	}
+
+	p {
+		font-size: 70%;
+	}
+
+	div.container-box {
+		width: 90%;
+}

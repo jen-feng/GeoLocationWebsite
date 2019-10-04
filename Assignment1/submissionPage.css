@@ -70,7 +70,7 @@ li a:hover {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	width: 320px;
+	width: 500px;
 	box-sizing: border-box;
 	transition: all 300ms ease-out;
 }
@@ -85,10 +85,11 @@ li a:hover {
 	margin-bottom: 40px;
 	font-size: 1.6em;
 	color: black;
+	text-align: center;
 }
 
 .input-wrap {
-	margin-bottom:0.5em;
+	margin-bottom:1em;
 }
 
 .rf-input {
@@ -106,7 +107,9 @@ li a:hover {
 
 .rf-label {
 	display: inline-block;
-	opacity: 0;
+	opacity: 1;
+	width: 100%;
+	margin-bottom: 0.3em;
 }
 
 .rf-input:hover~.rf-label {
@@ -118,9 +121,34 @@ li a:hover {
 	opacity:1;
 }
 
+.rf-input.description {
+	height: 170px;
+}
+
+textarea {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.coordinates-container {
+	text-align: justify;
+}
+
+.rf-input.longitude, .rf-input.latitude {
+	width: 48%;
+}
+
+.rf-input.longitude {
+	margin-right: 4px;
+}
+
 .register-legal {
 	text-align: justify;
 	font-size: 0.8em;
+}
+
+.rf-input.image {
+	text-align: center;
 }
 
 input {
