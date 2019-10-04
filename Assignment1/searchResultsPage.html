@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="searchResultsPage.css" >
+
+<head>
+  <title>
+    Search Results Page
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header id="header" class="group" role="banner">
+    <div class="logo">
+	  <img src="logo.png" id="img_logo">
+	</div>
+	<div class="menu">  
+      <ul>
+        <li><a href="SearchForm.html">Home</a></li>
+        <li><a href="">News</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">About</a></li>
+		<li><a href="RegistrationPage.html">Registration</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="search-section">
+    <form class="form-content" action="" method="" name="" > 
+      <div class="search-container">
+        <div class="searchbar">
+          <input type="search" name = "search" placeholder="What are you looking for?">
+        </div>  
+        <div class="ratings-container">
+          <select id="ratings">
+            <option value="" disabled selected hidden>Ratings</option>
+			<option value="5">✩✩✩✩✩</option>
+			<option value="4">✩✩✩✩</option>
+			<option value="3">✩✩✩</option>
+			<option value="2">✩✩</option>
+			<option value="1">✩</option>
+		  </select>
+        </div>
+	    <div class="submit-button">
+	      <input type="submit" value="search" class="button">
+        </div>
+      </div>
+    </form>
+    <div class="results-container">
+      <div class="map-container">
+	    <img src="map_screenshot.jpg" id="map">
+        <div class="map-border">
+		  <p id="map_title">Results on Map</p>
+		</div>
+	  </div>
+	  <div class="results-content">
+	    <table>
+		  <tr class="table-row">
+		    <th>Store</th>
+			<th style="width:20%">Contact</th>
+			<th>Ratings</th>
+		  </tr>
+		  <tr>
+		    <td>
+			  <div class="store-container">
+			    <div class="store-image">
+				  <img src="store.png" id="store_image">
+				</div>
+				<div class="store-name">
+				  <h1>Pet Valu</h1>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla <span id="dots">...</span><span id="more">vel erat posuere eleifend. Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. Nam rutrum massa quis elit consectetur dictum.</p>
+				  <button onclick="" id="myBtn">Read more</button>
+				</div>
+			  </div>
+			</td>
+			<td><p>(905) 628-1860</p></td>
+			<td>✩✩✩✩✩</td>
+		  </tr>
+		  <tr>
+		    <td>
+			  <div class="store-container">
+			    <div class="store-image">
+				  <img src="store.png" id="store_image">
+				</div>
+				<div class="store-name">
+				  <h1>Dundas Valley Groomers</h1>
+				  <p>Cras pulvinar nisl quis augue tempor, quis euismod ex lacinia. Pellentesque pretium non diam in elementum. Suspendisse scelerisque efficitur leo a accumsan. <span id="dots">...</span><span id="more">Sed eros massa, commodo at neque id, mattis elementum ex. Proin in est ac massa imperdiet scelerisque. Phasellus ligula leo, suscipit at porttitor id.</p>
+				  <button onclick="" id="myBtn">Read more</button>
+				</div>
+			  </div>
+			</td>
+			<td><p>(905) 628-3838</p></td>
+			<td>✩✩✩✩</td>
+		  </tr>
+		  <tr>
+		    <td>
+			  <div class="store-container">
+			    <div class="store-image">
+				  <img src="store.png" id="store_image">
+				</div>
+				<div class="store-name">
+				  <h1>Animal House Professional</h1>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. <span id="dots">...</span><span id="more">Mauris dapibus diam consectetur, imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. Nam rutrum massa quis elit consectetur dictum.</p>
+				  <button onclick="" id="myBtn">Read more</button>
+				</div>
+			  </div>
+			</td>
+			<td><p>(905) 627-4289</p></td>
+			<td>✩✩✩✩</td>
+		  </tr>
+		  <tr>
+		    <td>
+			  <div class="store-container">
+			    <div class="store-image">
+				  <img src="store.png" id="store_image">
+				</div>
+				<div class="store-name">
+				  <h1>Global Pet Foods</h1>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla <span id="dots">...</span><span id="more">vel erat posuere eleifend. Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. Nam rutrum massa quis elit consectetur dictum.</p>
+				  <button onclick="" id="myBtn">Read more</button>
+				</div>
+			  </div>
+			</td>
+			<td><p>(905) 628-8700</p></td>
+			<td>✩✩✩✩</td>
+		  </tr>
+		</table>
+	    <div class="page-container">
+		  <p class="page">Page 1 of Page 1<p>
+        </div>
+	  </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer">
+      All rights reserved
+    </div>
+  </footer>
+ <body>
