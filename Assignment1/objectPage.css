@@ -1,5 +1,5 @@
 html, body {
-	height: 100%;
+	height: auto;
 	background-color: #fff;
 }
 
@@ -51,9 +51,8 @@ li a:hover {
 }
 
 .search-section {
-	height: 100%;
+	height: auto;
 	width: 100%;
-	overflow: hidden;
 	background-position: center center;
 	background-size: cover;
 }
