@@ -48,6 +48,16 @@ li a:hover {
 	background-color: #111;
 }
 
+h1 a {
+	text-decoration: none;
+	color: black;
+}
+
+h1 a:hover {
+	color: brown;
+	text-decoration: underline;
+}
+
 .search-section {
 	height: 90%;
 	width: 100%;
