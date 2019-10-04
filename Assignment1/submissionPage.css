@@ -58,7 +58,7 @@ li a:hover {
 	height: 100%;
 	background-color: #e6e6e6; 
 	display: inline-block;
-	overflow: scroll;
+	overflow: auto;
 }
 
 .container-box {
