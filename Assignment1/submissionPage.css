@@ -58,7 +58,7 @@ li a:hover {
 	height: 100%;
 	background-color: #e6e6e6; 
 	display: inline-block;
-	overflow: auto;
+	overflow: scroll;
 }
 
 .container-box {
@@ -158,7 +158,6 @@ input {
 input:focus {
 	background-color: #e8f0fe;
 	outline-color: black;
-	outline-radius: 5px;
 }
 
 input[type="submit"] {
