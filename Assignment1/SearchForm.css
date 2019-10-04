@@ -1,8 +1,9 @@
 html, body {
-	margin-left: 10px;
-	margin-right: 10px;
 	height: 100%;
-	margin-top: 0;
+}
+
+* {
+	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 
 .logo {
@@ -42,7 +43,7 @@ li a {
 	padding: 20px 10px;
 	text-decoration: none;
 	font-size: 20px;
-	width: 100px;
+	width: 110px;
 }
 
 li a:hover {
@@ -67,7 +68,6 @@ li a:hover {
 .title {
 	text-align: center;
 	padding-top: 10px;
-	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 .search-container {
 	margin: auto;
@@ -99,8 +99,8 @@ li a:hover {
 	padding-right: 10px;
 	outline: none;
 	border-color: #F8DCBD;
+	background-color: white;
 }
-
 
 .submit-button {
 	margin: auto;
@@ -109,7 +109,6 @@ li a:hover {
 }
 
 input[type="search"] {
-	font-family: Georgia,Times,times,serif;
 	border-radius: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -120,7 +119,7 @@ input[type="search"] {
 	outline: none;
 	border-style: solid;
 	border-color: #F8DCBD;
-	transition: all 200ms ease-out;
+	transition: all 300ms ease-out;
 }
 
 #ratings:hover, input[type="search"]:hover {
@@ -131,7 +130,7 @@ input[type="submit"] {
 	border-radius: 5px;
 	margin: auto;
 	overflow: hidden;
-	background-color: #4CAF50; /* Green */
+	background-color: #4CAF50;
 	border: none;
 	color: white;
 	text-align: center;
@@ -147,21 +146,40 @@ input[type="submit"]:hover {
   
 .form-content {
 	text-align: center;
-}  
-  
-form.form-content::after {
-	content: "";
-	clear: both;
-	display: table;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: center;
- }
- 
+	padding-top: 20px;
+	bottom: 0;
+	width: 100%;
+	background-color: #46301E;
+	color: white;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+@media(max-width: 600px) {
+	#img_logo {
+		height: 3em;
+	}
+
+	ul a {
+		font-size: 80%;
+		float: none;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	p {
+		font-size: 70%;
+	}
+
+	input {
+		 height: 10%;
+	}
+
+	div.searchbar {
+		width: 95%;
+	}
+}

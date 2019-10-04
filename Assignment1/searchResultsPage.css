@@ -1,6 +1,5 @@
 html, body {
 	height: 100%;
-	margin-top: 0;
 }
 
 * {
@@ -69,7 +68,6 @@ li a:hover {
 .title {
 	text-align: center;
 	padding-top: 10px;
-	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 .search-container {
 	margin: auto;
@@ -106,8 +104,8 @@ li a:hover {
 	outline: none;
 	border-color: #F8DCBD;
 	transition: all 200ms ease-out;
+	background-color: white;
 }
-
 
 .submit-button {
 	margin: auto;
@@ -118,7 +116,6 @@ li a:hover {
 
 
 input[type="search"] {
-	font-family: Georgia,Times,times,serif;
 	border-radius: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -128,7 +125,6 @@ input[type="search"] {
 	outline: none;
 	border-style: solid;
 	border-color: #F8DCBD;
-	transition: all 200ms ease-out;
 }
 
 #ratings:hover, input[type="search"]:hover {
@@ -155,12 +151,6 @@ input[type="submit"]:hover {
 
 .form-content {
 	text-align: center;
-}  
-  
-form.form-content::after {
-	content: "";
-	clear: both;
-	display: table;
 }
 
 .results-container {
@@ -272,35 +262,42 @@ p.page {
 	color: white;
 	text-align: center;
 	padding-bottom: 20px;
- }
+}
  
- @media(max-width: 600px) {
-	 #img_logo {
-		 height: 3em;
-	 }
-	 ul a {
-		 font-size: 80%;
-		 float: none;
-		 display: block;
-		 width: 100%;
-		 text-align: center;
-	 }
-	 h1 {
-		 font-size: 100%;
-	 }
-	 p {
-		 font-size: 70%;
-	 }
-	  div.map-container {
-		  width: 80%;
-	  }
-	  div.store-image {
-		  width: 30%;
-	  }
-	  input {
-		  height: 10%;
-	  }
-	  div.searchbar {
-		  width: 95%;
-	  }
+@media(max-width: 600px) {
+	#img_logo {
+		height: 3em;
+	}
+
+	ul a {
+		font-size: 80%;
+		float: none;
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	h1 {
+		font-size: 100%;
+	}
+
+	p {
+		font-size: 70%;
+	}
+
+	div.map-container {
+		width: 80%;
+	}
+
+	div.store-image {
+		width: 30%;
+	}
+
+	input {
+		height: 10%;
+	}
+
+	div.searchbar {
+		width: 95%;
+	}
  }
