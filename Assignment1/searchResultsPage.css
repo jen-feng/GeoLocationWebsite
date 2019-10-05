@@ -1,65 +1,64 @@
 html, body {
-	height: 100%;
+	height: 100%; /*get rid of the white space at the bottom*/
 	background-color: #fff;
 }
 
+/*Use these fonts for all text*/
 * {
 	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 
+/*logo image for the top left of the web page*/
 .logo {
 	margin: 0;
 	width: 100%;
-	background-color: #fff; 
 	float: left;
 }
 
+/*size of logo*/
 #img_logo {
 	height: 5em;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/*base look for the navigation menu*/
+
 .menu {
-	display: inline-block;
-	float: left;
-	width: 100%;
+	float: left;  /*to maintain the menu position*/
+	width: 100%;   /*cover the whole width for the menu*/
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	list-style-type: none;  /*to get rid if the list style*/
+	margin: 0;   /*get rid of the margin so the elements below and above are closer to the menu*/
+	padding: 0;   /*get rid of the extra space from the left side of the menu*/
 	overflow: hidden;
-	background-color: #46301E;
- }
-  
+	background-color: #46301e;
+}
+
+/*keep the menu items to the left so they are in the same line*/
 li {
 	float: left;
 }
 
 li a {
-	display: block;
+	display: block; 
 	color: white;
-	text-align: center;
-	padding: 20px 30px;
-	text-decoration: none;
+	text-align: center;  /*align the text for each list elements*/
+	padding: 20px 30px;  /*padding for the text inside the list elements*/
+	text-decoration: none; /*get rid of the underline*/
 	font-size: 20px;
 }
 
+
+/*change color when mouse hover to the corresponding menu item*/
 li a:hover {
 	background-color: #111;
 }
 
-h1 a {
-	text-decoration: none;
-	color: black;
-}
-
-h1 a:hover {
-	color: brown;
-	text-decoration: underline;
-}
-
-.search-section {
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/*the structure of the search part similar to the index.html*/
+.body-content {
 	height: 90%;
 	width: 100%;
 	overflow: auto;
@@ -69,7 +68,7 @@ h1 a:hover {
 	padding-bottom: 0;
 }
 
-.form-content {
+.container-box {
 	text-align: center;
 	overflow: hidden;
 	display: block;
@@ -79,13 +78,14 @@ h1 a:hover {
 	text-align: center;
 	padding-top: 10px;
 }
+
+/*wrap around the search bar, ratings and search button*/
 .search-container {
 	margin: auto;
 	text-align: center;
 	display: block;
 	padding-bottom: 15px;
 	padding-top: 10px;
-	position: sticky;
 	top: 10px;
 }
 
@@ -104,19 +104,22 @@ h1 a:hover {
 	margin-top: 10px;
 }
 
+/*style for the rating*/
 #ratings {
 	border-radius: 5px;
+	border-width: 2px;
 	font-size: 15px;
 	height: 48px;
 	width: 110px;
 	padding-left: 10px;
 	padding-right: 10px;
-	outline: none;
-	border-color: #F8DCBD;
-	transition: all 200ms ease-out;
+	border-color: #f8dcbd; /*same border color as the search bar*/
 	background-color: white;
+	transition: all 300ms ease-out; /*add transition for smooth show up*/
+	outline: none; /*get rid of outline*/
 }
 
+/*not a block anymore compare to index.html, ratings and search will fit in the same line when the screen size is smaller*/
 .submit-button {
 	margin: auto;
 	display: inline-block;
@@ -158,24 +161,21 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: #3e8e41;
 }
+/*above are sinilar to index.html, the search page*/
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
 
-.form-content {
-	text-align: center;
-}
-
+/*wrap around map and the table results*/
 .results-container {
 	height: 100%;
 	text-align: center;
 }
 
-
+/*wrap the border of the map and title and the map*/
 .map-container {
 	background-color: lightgray;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 25px;
-	position: relative;
-	box-sizing: border-box;
-	margin-left: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*add shadow for the map*/
+	margin-bottom: 25px;  /*add space between map and the table*/
+	margin-left: auto;   /*center the map with the fixed width*/
 	margin-right: auto;
 	width: 320px;
 }
@@ -185,14 +185,12 @@ input[type="submit"]:hover {
 	padding: 5px 5px;
 }
 
-#map_title {
-	margin: 0;
-}
-
+/*set the size of the map*/
 #map {
 	width: 100%;
 }
 
+/*wrap around the table to be styled easier*/
 .results-content {
 	margin-left: 5%;
 	margin-right: 5%;
@@ -200,6 +198,7 @@ input[type="submit"]:hover {
 	float: left;
 }
 
+/*set result table size*/
 table {
 	width: 100%;
 	height: 100%;
@@ -207,10 +206,27 @@ table {
 	border-collapse: collapse;
 }
 
+/*set the border style for the table*/
 th, td {
 	border: solid 1px lightgray;
 }
 
+th.table-row.contact, th.table-row.ratings {
+	width: 20%;
+}
+
+/*set color the first row of the table*/
+tr.table-row {
+	background-color: #46301e;
+	color: white;
+}
+
+/*some shadow for hovering the rows*/
+tr:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*set the elements in the first column style*/
 .store-container {
 	display: inline-block;
 	text-align: left;
@@ -218,52 +234,48 @@ th, td {
 	vertical-align: middle;
 }
 
+/*the container for the image to wrpa around the store image*/
 .store-image {
 	display: inline-block;
 	float: left;
 	width: 20%;
 }
 
-.store-name {
-	text-align: left;
-	vertical-align: middle;
-	height: 100%;
-	box-sizing: border-box;
-	display: table-cell;
-}
-
+/*set the size of the store image*/
 .store-image img {
 	width: 100%;
 }
 
+/*set the store name for the column*/
+.store-name {
+	text-align: left;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+/*hide the extra text*/
 .more {
 	display: none;
 }
 
+/*set style for the store name header*/
 h1 {
-	margin: 0;
+	margin: 2% 0 2% 0;
 	font-size: 25px;
 }
 
-
+/*store description*/
 p {
-	margin: auto;
+	margin: 0;
 }
 
-tr.table-row {
-	background-color: #46301E;
-	color: white;
-}
-
-tr:hover {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
+/*paging style*/
 p.page {
 	background-color: lightgray;
 	display: block;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
 	padding-top: 20px;
 	bottom: 0;
@@ -273,7 +285,9 @@ p.page {
 	text-align: center;
 	padding-bottom: 20px;
 }
- 
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/*change some style when showing in a smaller screen size*/
 @media(max-width: 600px) {
 	#img_logo {
 		height: 3em;
@@ -281,8 +295,6 @@ p.page {
 
 	ul a {
 		font-size: 80%;
-		float: none;
-		display: block;
 		width: 100%;
 		text-align: center;
 	}
@@ -291,27 +303,28 @@ p.page {
 		padding: 20px 10px;
 	}
 
+	/*set the size of the store name*/
 	h1 {
 		font-size: 100%;
 	}
 
+	/*make the font smaller*/
 	p {
 		font-size: 70%;
 	}
 
+	/*reduce size of the map result*/
 	div.map-container {
 		width: 80%;
 	}
 
+	/*reduce size of the store image*/
 	div.store-image {
 		width: 30%;
 	}
 
-	input {
-		height: 10%;
-	}
-
+	/*make the search bar longer*/
 	div.searchbar {
 		width: 95%;
 	}
- }
+}

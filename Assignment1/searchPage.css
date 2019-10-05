@@ -1,55 +1,65 @@
+/*all css files have the same style for the navigation menu and logo styling*/
 html, body {
-	height: 100%;
+	height: 100%; /*get rid of the white space at the bottom*/
 }
 
+/*Use these fonts for all text*/
 * {
 	font-family: "Trebuchet MS",Trebuchet,Arial,Helvetica,sans-serif;
 }
 
+/*logo image for the top left of the web page*/
 .logo {
 	margin: 0;
 	width: 100%;
-	background-color: #fff;
 	float: left;
 }
 
-img {
+/*size of logo*/
+#img_logo {
 	height: 5em;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/*base look for the navigation menu*/
+
 .menu {
-	display: inline-block;
-	float: left;
-	position: relative;
-	width: 100%;
+	float: left;  /*to maintain the menu position*/
+	width: 100%;   /*cover the whole width for the menu*/
 }
 
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	list-style-type: none;  /*to get rid if the list style*/
+	margin: 0;   /*get rid of the margin so the elements below and above are closer to the menu*/
+	padding: 0;   /*get rid of the extra space from the left side of the menu*/
 	overflow: hidden;
-	background-color: #46301E;
- }
-  
+	background-color: #46301e;
+}
+
+/*keep the menu items to the left so they are in the same line*/
 li {
 	float: left;
 }
 
 li a {
-	display: block;
+	display: block; 
 	color: white;
-	text-align: center;
-	padding: 20px 30px;
-	text-decoration: none;
+	text-align: center;  /*align the text for each list elements*/
+	padding: 20px 30px;  /*padding for the text inside the list elements*/
+	text-decoration: none; /*get rid of the underline*/
 	font-size: 20px;
 }
 
+
+/*change color when mouse hover to the corresponding menu item*/
 li a:hover {
 	background-color: #111;
 }
 
-.search-section {
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*wrapper of the body content for the search elements*/
+.body-content {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
@@ -58,78 +68,90 @@ li a:hover {
 	background-size: cover;
 }
 
-.form-content {
+/*wrap around the search bar and the buttons*/
+.container-box {
+	margin-top: 15%;
+	width: 100%;
+}
+
+/*the form*/
+.search-form {
 	text-align: center;
 	overflow: hidden;
 	display: block;
 }
 
+/*title for the form*/
 .title {
 	text-align: center;
 	padding-top: 10px;
 }
+
+/*wrap the search bar and the ratings to be in the same line*/
 .search-container {
 	margin: auto;
 	text-align: center;
 	display: block;
 }
 
+/*style for the search bar*/
 .searchbar {
-	text-align: right;
 	display: inline-block;
 	margin: auto;
 	text-align: center;
-	width: 70%;
+	width: 70%;  /*remain some space for the rating container*/
 }
 
+/*syle the rating container*/
 .ratings-container {
 	display: inline-block;
-	transition: all 200ms ease-out;
-	text-align: left;
-	margin-top: 10px;
+	margin-top: 10px; /* to align with the search bar*/
 }
 
+/*style for the rating*/
 #ratings {
 	border-radius: 5px;
+	border-width: 2px;
 	font-size: 15px;
 	height: 48px;
 	width: 110px;
 	padding-left: 10px;
 	padding-right: 10px;
-	outline: none;
-	border-color: #F8DCBD;
+	border-color: #f8dcbd; /*same border color as the search bar*/
 	background-color: white;
+	transition: all 300ms ease-out; /*add transition for smooth show up*/
+	outline: none; /*get rid of outline*/
 }
 
+/*wrap around the button as a block*/
 .submit-button {
-	margin: auto;
-	padding-top: 10px;
+	padding-top: 15px;
 	display: block;
 }
 
+/*style for the search button*/
 input[type="search"] {
 	border-radius: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
 	height: 48px;
-	min-height: 40px;
 	font-size: 0.9em;
 	width: 100%;
-	outline: none;
+	outline: none; /*get rid of outline*/
 	border-style: solid;
-	border-color: #F8DCBD;
-	transition: all 300ms ease-out;
+	border-color: #f8dcbd;
+	transition: all 300ms ease-out; /*same transition as the search bar and ratings*/
 }
 
+/*add shadow when hovers the search bar and ratings*/
 #ratings:hover, input[type="search"]:hover {
 	box-shadow: 2px 2px 2px 2px rgba(0.5, 0.5, 0, 0.5), 0 6px 20px 0 rgba(0, 0.5, 0.5, 0.5);
 }
 
+/*styleing the search button*/
 input[type="submit"] {
 	border-radius: 5px;
-	margin: auto;
-	overflow: hidden;
-	background-color: #4CAF50;
+	background-color: #4caf50;
 	border: none;
 	color: white;
 	text-align: center;
@@ -139,50 +161,39 @@ input[type="submit"] {
 	width: 100px;
 }
 
+/*change color when search button is hovered*/
 input[type="submit"]:hover {
 	background-color: #3e8e41;
 }
-  
-.form-content {
-	text-align: center;
-}
 
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/*set the footer with the same color as the navigation*/
 .footer {
 	padding-top: 20px;
 	bottom: 0;
 	width: 100%;
-	background-color: #46301E;
+	background-color: #46301e;
 	color: white;
 	text-align: center;
 	padding-bottom: 20px;
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/*change some style when showing in a smaller screen size*/
 @media(max-width: 600px) {
+	/*change logo size smaller*/
 	#img_logo {
 		height: 3em;
 	}
 
+	/*change font size for the navigation text*/
 	ul a {
 		font-size: 80%;
-		float: none;
-		display: block;
-		width: 100%;
 		text-align: center;
 	}
 
+	/*change padding to fit better in the smaller screen*/
 	li a {
 		padding: 20px 10px;
-	}
-
-	p {
-		font-size: 70%;
-	}
-
-	input {
-		 height: 10%;
-	}
-
-	div.searchbar {
-		width: 95%;
 	}
 }

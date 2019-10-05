@@ -22,8 +22,8 @@
         </ul>
       </div>
     </header>
-    <div class="search-section">
-      <form class="form-content" action="searchReultsPage.html" name="search-form" > 
+    <div class="body-content">
+      <form class="container-box" action="searchReultsPage.html" name="search-form" > 
         <div class="search-container">
           <div class="searchbar">
             <input type="search" name = "search" placeholder="What are you looking for?">
@@ -52,13 +52,15 @@
         </div>
         <div class="results-content">
           <table>
+            <!--first row-->
             <tr class="table-row">
-              <th>Store</th>
-              <th style="width:20%">Contact</th>
-              <th>Ratings</th>
+              <th class="table-row store">Store</th>
+              <th class="table-row contact">Contact</th>
+              <th  class="table-row ratings">Ratings</th>
             </tr>
             <tr>
               <td>
+                <!--div class to includes store image , name and other info-->
                 <div class="store-container">
                   <div class="store-image">
                     <a href="objectPage.html"><img src="store.png" alt="Store Image"></a>
@@ -122,6 +124,7 @@
               <td>✩✩✩✩</td>
             </tr>
           </table>
+          <!--an element for the table paging, hard coded for now-->
           <div class="page-container">
             <p class="page">Page 1 of Page 1<p>
           </div>
