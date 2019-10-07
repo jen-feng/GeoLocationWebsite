@@ -62,7 +62,7 @@ li a:hover {
 	height: 90%;
 	width: 100%;
 	overflow: auto;
-	background-image: url(search_background.jpg);
+	background-image: url(results_background.jpg);
 	background-position: center center;
 	background-size: cover;
 	padding-bottom: 0;
@@ -251,6 +251,7 @@ tr:hover {
 	text-align: left;
 	vertical-align: middle;
 	display: table-cell;
+	padding-right: 1%;
 }
 
 /*hide the extra text*/
@@ -262,6 +263,18 @@ tr:hover {
 h1 {
 	margin: 2% 0 2% 0;
 	font-size: 25px;
+}
+
+/*get rid of the link style*/
+h1 a {
+	text-decoration: none;
+	color: black;
+}
+
+/*add link style when hovered*/
+h1 a:hover {
+	text-decoration: underline;
+	color: gray;
 }
 
 /*store description*/

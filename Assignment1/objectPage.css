@@ -58,111 +58,15 @@ li a:hover {
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 /*the structure of the search part similar to the index.html*/
-.body-content {
+.results-container {
 	height: 90%;
 	width: 100%;
 	overflow: auto;
-	background-image: url(search_background.jpg);
+	background-image: url(object_background.jpg);
 	background-position: center center;
 	background-size: cover;
 	padding-bottom: 0;
 }
-
-.container-box {
-	text-align: center;
-	overflow: hidden;
-	display: block;
-}
-
-.title {
-	text-align: center;
-	padding-top: 10px;
-}
-
-/*wrap around the search bar, ratings and search button*/
-.search-container {
-	margin: auto;
-	text-align: center;
-	display: block;
-	padding-bottom: 15px;
-	padding-top: 10px;
-	top: 10px;
-}
-
-.searchbar {
-	text-align: right;
-	display: inline-block;
-	margin: auto;
-	text-align: center;
-	width: 70%;
-}
-
-.ratings-container {
-	display: inline-block;
-	transition: all 200ms ease-out;
-	text-align: center;
-	margin-top: 10px;
-}
-
-/*style for the rating*/
-#ratings {
-	border-radius: 5px;
-	border-width: 2px;
-	font-size: 15px;
-	height: 48px;
-	width: 110px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-color: #f8dcbd; /*same border color as the search bar*/
-	background-color: white;
-	transition: all 300ms ease-out; /*add transition for smooth show up*/
-	outline: none; /*get rid of outline*/
-}
-
-/*not a block anymore compare to index.html, ratings and search will fit in the same line when the screen size is smaller*/
-.submit-button {
-	margin: auto;
-	display: inline-block;
-	text-align: center;
-	vertical-align: bottom;
-}
-
-
-input[type="search"] {
-	border-radius: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-	height: 48px;
-	font-size: 0.9em;
-	width: 100%;
-	outline: none;
-	border-style: solid;
-	border-color: #F8DCBD;
-}
-
-#ratings:hover, input[type="search"]:hover {
-	box-shadow: 2px 2px 2px 2px rgba(0.5, 0.5, 0, 0.5), 0 6px 10px 0 rgba(0, 0.5, 0.5, 0.5);
-}
-
-input[type="submit"] {
-	border-radius: 5px;
-	margin: auto;
-	overflow: hidden;
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	font-size: 25px;
-	height: 48px;
-	width: 100px;
-}
-
-input[type="submit"]:hover {
-	background-color: #3e8e41;
-}
-/*above are sinilar to index.html, the search page*/
-/*---------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*wrap around map and the table results*/
 .results-container {
@@ -174,6 +78,7 @@ input[type="submit"]:hover {
 .map-container {
 	background-color: lightgray;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*add shadow for the map*/
+	margin-top: 25px;
 	margin-bottom: 25px;  /*add space between map and the table*/
 	margin-left: auto;   /*center the map with the fixed width*/
 	margin-right: auto;
@@ -215,57 +120,60 @@ th.table-row.contact, th.table-row.ratings {
 	width: 20%;
 }
 
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
 /*set color the first row of the table*/
 tr.table-row {
 	background-color: #46301e;
 	color: white;
 }
 
-/*some shadow for hovering the rows*/
-tr:hover {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 /*set the elements in the first column style*/
-.store-container {
-	display: inline-block;
+.user-container {
 	text-align: left;
 	width: 100%;
 	vertical-align: middle;
 }
 
-/*the container for the image to wrpa around the store image*/
-.store-image {
+/*the container for the image to wrap around the user image*/
+.user-image {
+	position: relative;
 	display: inline-block;
 	float: left;
 	width: 20%;
+	margin:3%;
 }
 
-/*set the size of the store image*/
-.store-image img {
+/*set the size of the user image*/
+.user-image img {
 	width: 100%;
 }
 
 /*set the store name for the column*/
-.store-name {
+.user-comments {
 	text-align: left;
 	vertical-align: middle;
 	display: table-cell;
+	padding-right: 2%;
 }
 
-/*hide the extra text*/
-.more {
-	display: none;
-}
-
-/*set style for the store name header*/
 h1 {
+	margin: 0;
+	padding: 3px;
+	border: solid 1px black;
+}
+
+/*set style for the user name header*/
+h2 {
 	margin: 2% 0 2% 0;
 	font-size: 25px;
 }
 
-/*store description*/
+/*user description*/
 p {
+	padding-top: 3px;
 	margin: 0;
 }
 
@@ -304,7 +212,7 @@ p.page {
 	}
 
 	/*set the size of the store name*/
-	h1 {
+	h1, h2 {
 		font-size: 100%;
 	}
 
@@ -313,18 +221,8 @@ p.page {
 		font-size: 70%;
 	}
 
-	/*reduce size of the map result*/
-	div.map-container {
-		width: 80%;
-	}
-
 	/*reduce size of the store image*/
-	div.store-image {
+	div.user-image {
 		width: 30%;
-	}
-
-	/*make the search bar longer*/
-	div.searchbar {
-		width: 95%;
 	}
 }
