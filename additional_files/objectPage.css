@@ -74,13 +74,30 @@ li a:hover {
 	text-align: center;
 }
 
+.top-container {
+	margin-top: 25px;
+	margin-bottom: 25px;  /*add space between map and the table*/
+	text-align: center;
+}
+
+.video-container {
+	float: left;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+video {
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(255,255,255,0.3), 0 6px 20px 10px rgba(255,255,255,0.3);
+}
+
 /*wrap the border of the map and title and the map*/
 .map-container {
 	background-color: lightgray;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*add shadow for the map*/
 	margin-top: 25px;
 	margin-bottom: 25px;  /*add space between map and the table*/
-	margin-left: auto;   /*center the map with the fixed width*/
+    margin-left: auto;   /*center the map with the fixed width*/
 	margin-right: auto;
 	width: 320px;
 }
@@ -109,6 +126,10 @@ table {
 	height: 100%;
 	background-color: white;
 	border-collapse: collapse;
+}
+
+td {
+	width: 80%;
 }
 
 /*set the border style for the table*/
@@ -154,9 +175,9 @@ tr.table-row {
 /*set the store name for the column*/
 .user-comments {
 	text-align: left;
-	vertical-align: middle;
 	display: table-cell;
 	padding-right: 2%;
+	margin-bottom: 2%;
 }
 
 h1 {
@@ -171,6 +192,10 @@ h2 {
 	font-size: 25px;
 }
 
+h3 {
+	margin: 2% 0 2% 0;
+	font-size: 15px;
+}
 /*user description*/
 p {
 	padding-top: 3px;
@@ -211,11 +236,19 @@ p.page {
 		padding: 20px 10px;
 	}
 
-	/*set the size of the store name*/
+	video {
+		width: 300px;
+	}
+	
+	/*set the size of the titles*/
 	h1, h2 {
 		font-size: 100%;
 	}
 
+	h3 {
+		font-size: 80%;
+	}
+	
 	/*make the font smaller*/
 	p {
 		font-size: 70%;
@@ -229,5 +262,10 @@ p.page {
 	/*reduce size of the store image*/
 	div.user-image {
 		width: 30%;
+	}
+	
+	/*make the width smaller for the image to fit the cell*/
+	#sample_image {
+		width: 80%;
 	}
 }
