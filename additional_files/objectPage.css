@@ -221,6 +221,11 @@ p.page {
 		font-size: 70%;
 	}
 
+	/*reduce size of the map result*/
+	div.map-container {
+		width: 80%;
+	}
+	
 	/*reduce size of the store image*/
 	div.user-image {
 		width: 30%;
