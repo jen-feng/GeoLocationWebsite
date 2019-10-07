@@ -60,7 +60,7 @@ li a:hover {
 
 /*content wrapper for the body part after the navigation bar*/
 .body-content {
-	background-image: url(registration_background.png);
+	background-image: url(../additional_files/registration_background.png);
 	background-repeat: no-repeat;  /*This background image is only for the top part so I don't wnat it to repeat*/
 	background-size: inherit; /*get the same size from the parent*/
 	width: 100%; /*covers the whole width so the elements inside this div can be in the center*/
