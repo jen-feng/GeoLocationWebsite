@@ -22,19 +22,111 @@
         </ul>
       </div>
     </header>
-    <div class="search-section">
-      <h1 class="title">Pet Valu</h1>
-      <div class="container">
-        <img src="petValuMap.jpg" alt="PetValu Map" style="width:300px;height:300px;">
-        <div>
-          Description: Chain featuring a range of pets, supplies & food (most offer grooming, boarding & other services).
-        </div>        
+    <div class="results-container">
+      <div class="map-container">
+        <img src="petValuMap.jpg" id="map" alt="Results Map">
+        <div class="map-border">
+          <p id="map_title">Results on Map</p>
+        </div>
+      </div>
+      <div class = "Object-info" >
+        <h1>Pet Valu</h1>
+        <p>
+            This chain of pet stores is open all around the world and offers a great service to new and old pet owners.
+        </p>
+        <br>
+      </div>
+      <div class="results-content">
+        <table>
+          <!--first row-->
+          <tr class="table-row">
+            <th class="table-row store">Reviews</th>
+            <th class="table-row contact">User</th>
+            <th  class="table-row ratings">Ratings</th>
+          </tr>
+          <tr>
+            <td>
+              <!--div class to includes store image , name and other info-->
+              <div class="store-container">
+                <div class="store-image">
+                  <a href="objectPage.html"><img src="usericon.png" alt="Store Image"></a>
+                </div>
+                <div class="store-name">
+                  <h1><a href="objectPage.html">Quite helpful!</a></h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
+                    Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, 
+                    imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. 
+                    Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, 
+                    ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. 
+                    Nam rutrum massa quis elit consectetur dictum.</p>
+
+                </div>
+              </div>
+            </td>
+            <td><p>Charlie</p></td>
+            <td>✩✩✩✩✩</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="store-container">
+                <div class="store-image">
+                  <a href=""><img src="usericon.png" alt="Store Image"></a>
+                </div>
+                <div class="store-name">
+                  <h1><a href="">Great service!</a></h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
+                      Suspendisse aliquet lobortis dolor.</p>
+                </div>
+              </div>
+            </td>
+            <td><p>Snoopy</p></td>
+            <td>✩✩✩✩</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="store-container">
+                <div class="store-image">
+                  <a href=""><img src="usericon.png" alt="Store Image"></a>
+                </div>
+                <div class="store-name">
+                  <h1><a href="">Thorough vet process</h1></a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
+                        Suspendisse aliquet lobortis dolor, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, 
+                        ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. 
+                        Nam rutrum massa quis elit consectetur dictum.</p>
+                </div>
+              </div>
+            </td>
+            <td><p>Lucy</p></td>
+            <td>✩✩✩✩</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="store-container">
+                <div class="store-image">
+                  <a href=""><img src="usericon.png" alt="Store Image"></a>
+                </div>
+                <div class="store-name">
+                  <h1><a href="">OK service</a></h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
+                      Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, 
+                      imperdiet lacus vel, faucibus enim.</p>
+                </div>
+              </div>
+            </td>
+            <td><p>Marcie</p></td>
+            <td>✩✩</td>
+          </tr>
+        </table>
+        <!--an element for the table paging, hard coded for now-->
+
       </div>
     </div>
-    <footer>
-      <div class="footer">
-        All rights reserved
-      </div>
-    </footer>
-   </body>
+  </div>
+  <footer>
+    <div class="footer">
+      All rights reserved
+    </div>
+  </footer>
+</body>
 </html>
