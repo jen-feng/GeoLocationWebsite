@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta property="og:url" content="http://52.70.212.150/objectPage.html"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title"  content="Lorem Ipsum: I found it!" />
+    <meta property="og:description" content="This chain of pet stores is open all around the world and offers a great service to new and old pet owners." />
+    <meta property="og:image" content="http://52.70.212.150/petValuMap.jpg" />
+    <meta property="fb:app_id" content="451521718789556">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lorem Ipsum: I found it!">
+    <meta name="twitter:description" content="This chain of pet stores is open all around the world and offers a great service to new and old pet owners.">
+    <meta name="twitter:image" content="http://52.70.212.150/petValuMap.jpg">
+    <meta name="twitter:site" content="@USERNAME">
+    <meta name="twitter:creator" content="@USERNAME">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="objectPage.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,15 +38,13 @@
       <div class="map-container">
         <img src="petValuMap.jpg" id="map" alt="Results Map">
         <div class="map-border">
-          <p id="map_title">Results on Map</p>
+          <h1 id="map_title">Pet Valu</h1>
+          <p>
+            This chain of pet stores is open all around the world and offers a great service to new and old pet owners.
+          </p>
         </div>
       </div>
-      <div class = "Object-info" >
-        <h1>Pet Valu</h1>
-        <p>
-            This chain of pet stores is open all around the world and offers a great service to new and old pet owners.
-        </p>
-        <br>
+      <div class = "object-info" >
       </div>
       <div class="results-content">
         <table>
@@ -46,20 +56,17 @@
           </tr>
           <tr>
             <td>
-              <!--div class to includes store image , name and other info-->
-              <div class="store-container">
-                <div class="store-image">
-                  <a href="objectPage.html"><img src="usericon.png" alt="Store Image"></a>
+              <!--div class to includes User Image , name and other info-->
+              <div class="user-container">
+                <div class="user-image">
+                  <img src="usericon.png" alt="User Image">
                 </div>
-                <div class="store-name">
-                  <h1><a href="objectPage.html">Quite helpful!</a></h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
-                    Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, 
-                    imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. 
+                <div class="user-comments">
+                  <h2>Quite helpful!</h2>
+                  <p>Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. 
                     Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, 
                     ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. 
                     Nam rutrum massa quis elit consectetur dictum.</p>
-
                 </div>
               </div>
             </td>
@@ -68,12 +75,12 @@
           </tr>
           <tr>
             <td>
-              <div class="store-container">
-                <div class="store-image">
-                  <a href=""><img src="usericon.png" alt="Store Image"></a>
+              <div class="user-container">
+                <div class="user-image">
+                  <img src="usericon.png" alt="User Image">
                 </div>
-                <div class="store-name">
-                  <h1><a href="">Great service!</a></h1>
+                <div class="user-comments">
+                  <h2>Great service!</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
                       Suspendisse aliquet lobortis dolor.</p>
                 </div>
@@ -84,13 +91,13 @@
           </tr>
           <tr>
             <td>
-              <div class="store-container">
-                <div class="store-image">
-                  <a href=""><img src="usericon.png" alt="Store Image"></a>
+              <div class="user-container">
+                <div class="user-image">
+                  <img src="usericon.png" alt="User Image">
                 </div>
-                <div class="store-name">
-                  <h1><a href="">Thorough vet process</h1></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
+                <div class="user-comments">
+                  <h2>Thorough vet process</h2>
+                    <p>Phasellus et nulla vel erat posuere eleifend. 
                         Suspendisse aliquet lobortis dolor, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, 
                         ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. 
                         Nam rutrum massa quis elit consectetur dictum.</p>
@@ -102,12 +109,12 @@
           </tr>
           <tr>
             <td>
-              <div class="store-container">
-                <div class="store-image">
-                  <a href=""><img src="usericon.png" alt="Store Image"></a>
+              <div class="user-container">
+                <div class="user-image">
+                  <img src="usericon.png" alt="User Image">
                 </div>
-                <div class="store-name">
-                  <h1><a href="">OK service</a></h1>
+                <div class="user-comments">
+                  <h2>OK service</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et nulla vel erat posuere eleifend. 
                       Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, 
                       imperdiet lacus vel, faucibus enim.</p>
@@ -119,14 +126,15 @@
           </tr>
         </table>
         <!--an element for the table paging, hard coded for now-->
-
+        <div class="page-container">
+          <p class="page">Page 1 of Page 1<p>
+        </div>
       </div>
     </div>
-  </div>
-  <footer>
-    <div class="footer">
-      All rights reserved
-    </div>
-  </footer>
-</body>
+    <footer>
+      <div class="footer">
+        All rights reserved
+      </div>
+    </footer>
+  </body>
 </html>
