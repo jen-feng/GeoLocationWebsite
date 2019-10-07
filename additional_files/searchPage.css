@@ -1,6 +1,6 @@
+/*all css files have the same style for the navigation menu and logo styling*/
 html, body {
 	height: 100%; /*get rid of the white space at the bottom*/
-	background-color: #fff;
 }
 
 /*Use these fonts for all text*/
@@ -57,125 +57,113 @@ li a:hover {
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
-/*This is based on the registrationPage.css structure, pretty much the same*/
+
+/*wrapper of the body content for the search elements*/
 .body-content {
-	background-image: url(registration_background.png);
-	background-repeat: no-repeat;
-	background-size: inherit;
+	height: 100%;
 	width: 100%;
-	height: auto;
-	background-color: #e6e6e6; 
-	display: inline-block;
+	overflow: hidden;
+	background-image: url(../additional_files/search_background.jpg);
+	background-position: center center;
+	background-size: cover;
 }
 
-/*a bigger width compared to registration form*/
+/*wrap around the search bar and the buttons*/
 .container-box {
-	color: #595959;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	margin-top: 60px;
-	margin-bottom: 60px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 500px;
-	transition: all 300ms ease-out;
+	margin-top: 15%;
+	width: 100%;
 }
 
-.auth-form {
-	padding: 40px;
-}
-
-.title-form {
-	display: block;
-	margin-top: 0px;
-	margin-bottom: 40px;
-	font-size: 1.6em;
-	color: black;
+/*the form*/
+.search-form {
 	text-align: center;
+	overflow: hidden;
+	display: block;
 }
 
-.input-wrap {
-	margin-bottom: 1em;
+/*title for the form*/
+.title {
+	text-align: center;
+	padding-top: 10px;
 }
 
-/*same input style as registrationPage.css*/
-.rf-input {
-	box-sizing: border-box;
-	font-family: Georgia,Times,times,serif;
+/*wrap the search bar and the ratings to be in the same line*/
+.search-container {
+	margin: auto;
+	text-align: center;
+	display: block;
+}
+
+/*style for the search bar*/
+.searchbar {
+	display: inline-block;
+	margin: auto;
+	text-align: center;
+	width: 70%;  /*remain some space for the rating container*/
+}
+
+/*syle the rating container*/
+.ratings-container {
+	display: inline-block;
+	margin-top: 10px; /* to align with the search bar*/
+}
+
+/*style for the rating*/
+#ratings {
+	border-radius: 5px;
+	border-width: 2px;
+	font-size: 15px;
+	height: 48px;
+	width: 110px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-color: #f8dcbd; /*same border color as the search bar*/
+	background-color: white;
+	transition: all 300ms ease-out; /*add transition for smooth show up*/
+	outline: none; /*get rid of outline*/
+}
+
+/*wrap around the button as a block*/
+.submit-button {
+	padding-top: 15px;
+	display: block;
+}
+
+/*style for the search button*/
+input[type="search"] {
 	border-radius: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
 	height: 48px;
-	vertical-align: middle;
 	font-size: 0.9em;
 	width: 100%;
+	outline: none; /*get rid of outline*/
+	border-style: solid;
+	border-color: #f8dcbd;
+	transition: all 300ms ease-out; /*same transition as the search bar and ratings*/
 }
 
-/*label for each input*/
-.rf-label {
-	display: inline-block;
-	width: 100%;
-	margin-bottom: 0.3em;
+/*add shadow when hovers the search bar and ratings*/
+#ratings:hover, input[type="search"]:hover {
+	box-shadow: 2px 2px 2px 2px rgba(0.5, 0.5, 0, 0.5), 0 6px 20px 0 rgba(0, 0.5, 0.5, 0.5);
 }
 
-/*bigger height for description*/
-.rf-input.description {
-	height: 170px;
-}
-
-/*make the text style similar to other input*/
-textarea {
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-
-/*wrapper for the twoo inputs for coordinates*/
-.coordinates-container {
-	text-align: justify;
-	display: block;
-}
-
-/*set the two inputs for coordinates stay in one line and both have the same width*/
-.rf-input.longitude, .rf-input.latitude {
-	width: 49%;
-}
-
-/*set the right input of the coordinates to the end making the input balance in the form*/
-.rf-input.latitude {
-	float: right;
-}
-
-.register-legal {
-	text-align: justify;
-	font-size: 0.8em;
-}
-
-input, textarea {
-	border: 1px solid lightgray;
-}
-
-/*change background color and add outline style when focusing on an input or textarea*/
-input:focus, textarea:focus {
-	background-color: #e8f0fe;
-	outline-color: black;
-}
-
-/*style the submit button*/
+/*styleing the search button*/
 input[type="submit"] {
-	text-transform: uppercase;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-size: 1em;
-	width: 100%;
-	height: 35px;
-	background-color: #bf0000;
-	color: white;
 	border-radius: 5px;
+	background-color: #4caf50;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 25px;
+	height: 50px;
+	width: 100px;
 }
 
-/*change background color and add outline style when focusing on an input*/
+/*change color when search button is hovered*/
 input[type="submit"]:hover {
-	background: #7a003c;
+	background-color: #3e8e41;
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
@@ -207,18 +195,5 @@ input[type="submit"]:hover {
 	/*change padding to fit better in the smaller screen*/
 	li a {
 		padding: 20px 10px;
-	}
-
-	h1 {
-		font-size: 100%;
-	}
-
-	p {
-		font-size: 70%;
-	}
-
-	/*change width of the container for the form*/
-	div.container-box {
-		width: 90%;
 	}
 }
