@@ -1,6 +1,7 @@
 # GeoLocationWebsite
 Built a website to learn the basics of web dev
 Link to live server: http://52.70.212.150/
+Git repo: https://github.com/biyak/GeoLocationWebsite
 
 Developers:
   - Jenny Feng Chen 400011633 CS 4ww3
