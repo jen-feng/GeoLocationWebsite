@@ -112,6 +112,7 @@ li a:hover {
 	vertical-align: middle;
 	font-size: 0.9em;
 	width: 100%;
+	outline: none;
 }
 
 /*hide the labels*/
@@ -162,6 +163,14 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background: #7a003c;
 }
+
+.field-validation-error {
+	color: red;
+	font-size: 13px;
+	display: none;
+}
+
+
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 
