@@ -16,6 +16,7 @@
     <meta name="twitter:creator" content="@USERNAME">
     <link rel="stylesheet" href="../additional_files/objectPage.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoVUFtP_wOgBALTQ3XgnyLYu0JSU8tv-0&libraries=places&callback=initMap"></script>
     <title>
       Object Page
     </title>
@@ -37,12 +38,35 @@
     <div class="results-container">
       <div class="top-container">
         <div class="map-container">
-          <img src="../additional_files/petValuMap.jpg" id="map" alt="Results Map">
-          <div class="map-border">
+          <div id="map"></div>
+          <script src="../additional_files/sample_map.js"></script>
+        </div>
+        <!--create a table for the store details -->
+        <div class="details-container">
+          <div class="container-border">
             <h1 id="map_title">Pet Valu</h1>
-            <p>
-              This chain of pet stores is open all around the world and offers a great service to new and old pet owners.
-            </p>
+            <table class="details-table">
+              <tr>
+                <td class="subject">Rating</td>
+                <td id="rating"></td>
+              </tr>
+              <tr>
+                <td class="subject">Address</td>
+                <td id="address"></td>
+              </tr>
+              <tr>
+                <td class="subject">Phone Number</td>
+                <td id="phone"></td>
+              </tr>
+              <tr>
+                <td class="subject">Website</td>
+                <td id="website"></td>
+              </tr>
+              <tr>
+                <td class="subject">Service Hours</td>
+                <td id="service_hours"></td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="video-container">
@@ -51,8 +75,6 @@
             Unfortunately your browser does not support this video.
           </video>
         </div>
-      </div>
-      <div class = "object-info" >
       </div>
       <div class="results-content">
         <table>
