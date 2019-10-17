@@ -80,17 +80,6 @@ li a:hover {
 	text-align: center;
 }
 
-.video-container {
-	position: relative;
-	margin-bottom: 20px;
-	width: 100%;
-}
-
-video {
-	border-radius: 5px;
-	box-shadow: 0 4px 8px 0 rgba(255,255,255,0.3), 0 6px 20px 10px rgba(255,255,255,0.3);
-}
-
 /*wrap the border of the map and title and the map*/
 .map-container {
 	background-color: lightgray;
@@ -99,7 +88,7 @@ video {
 	margin-bottom: 25px;  /*add space between map and the table*/
     margin-left: auto;   /*center the map with the fixed width*/
 	margin-right: auto;
-	width: 320px;
+	width: 40%;
 }
 
 .details-container {
@@ -119,7 +108,8 @@ video {
 
 /*set the size of the map*/
 #map {
-	height: 280px;
+	height: 350px;
+	width: 100%;
 }
 
 .details-table {
@@ -266,10 +256,6 @@ p.page {
 	li a {
 		padding: 20px 10px;
 	}
-
-	video {
-		width: 300px;
-	}
 	
 	/*set the size of the titles*/
 	h1, h2 {
@@ -291,9 +277,13 @@ p.page {
 	
 	/*reduce size of the map result*/
 	div.map-container {
-		width: 80%;
+		width: 90%;
 	}
-	
+
+	#map {
+		height: 300px;
+	}
+
 	/*reduce size of the store image*/
 	div.user-image {
 		width: 30%;

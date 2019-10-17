@@ -1,8 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoVUFtP_wOgBALTQ3XgnyLYu0JSU8tv-0&libraries=places&callback=initMap"></script>
-
     <title>
       Search Results Page
     </title>
@@ -48,7 +46,10 @@
       <div class="results-container">
         <div class="map-container">
           <div id="map"></div>
-          <script src="../additional_files/sample_map_2.js"></script>
+          <script type="text/javascript" src="../additional_files/results_map.js"></script>
+          <div class="map-border">
+            <p id="map_title">Results on Map</p>
+          </div>
         </div>
         <div class="results-content">
           <table>
@@ -137,4 +138,5 @@
       </div>
     </footer>
   </body>
+  <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places&callback=initMap"></script>
 </html>

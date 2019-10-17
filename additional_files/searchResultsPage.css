@@ -177,7 +177,7 @@ input[type="submit"]:hover {
 	margin-bottom: 25px;  /*add space between map and the table*/
 	margin-left: auto;   /*center the map with the fixed width*/
 	margin-right: auto;
-	width: 320px;
+	width: 40%;
 }
 
 .map-border {
@@ -187,6 +187,7 @@ input[type="submit"]:hover {
 
 /*set the size of the map*/
 #map {
+	height: 350px;
 	width: 100%;
 }
 
@@ -288,6 +289,10 @@ p.page {
 	display: block;
 }
 
+h3 {
+	margin: 0;
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
 	padding-top: 20px;
@@ -317,7 +322,7 @@ p.page {
 	}
 
 	/*set the size of the store name*/
-	h1 {
+	h1, h3 {
 		font-size: 100%;
 	}
 
@@ -328,7 +333,11 @@ p.page {
 
 	/*reduce size of the map result*/
 	div.map-container {
-		width: 80%;
+		width: 90%;
+	}
+	
+	#map {
+		height: 300px;
 	}
 
 	/*reduce size of the store image*/
