@@ -1,11 +1,6 @@
 function validateForm() {
 	var x = false;
-	//calling all functions instead of using && to show all invalid inputs
-	// if using &&, it stops validating the rest of the conditions which will skip the style changing for the invalid input
-	x = validateFirstName();
-	x = validateLastName();
-	x = validateEmail();
-	x = validatePassword();
+	x = validateFirstName() && validateLastName() && validateEmail() && validatePassword();
 	return x;
 }
 

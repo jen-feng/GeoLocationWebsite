@@ -135,6 +135,12 @@ textarea {
 	display: block;
 }
 
+.button-container {
+	width: 100%;
+	margin-top: 10px;
+
+}
+
 /*set the two inputs for coordinates stay in one line and both have the same width*/
 .rf-input.longitude, .rf-input.latitude {
 	width: 49%;
@@ -150,12 +156,12 @@ textarea {
 	font-size: 0.8em;
 }
 
-input, textarea {
+input:not([type="button"]), textarea {
 	border: 1px solid lightgray;
 }
 
 /*change background color and add outline style when focusing on an input or textarea*/
-input:focus, textarea:focus {
+input:not([type="button"]):focus, textarea:focus {
 	background-color: #e8f0fe;
 	outline-color: black;
 }
@@ -171,6 +177,12 @@ input[type="submit"] {
 	background-color: #bf0000;
 	color: white;
 	border-radius: 5px;
+}
+
+.field-validation-error {
+	color: red;
+	font-size: 13px;
+	display: none;
 }
 
 /*change background color and add outline style when focusing on an input*/
