@@ -45,8 +45,10 @@ function createMarkers(places) {
 			}
 		});
 
+		//show info window when click
 		google.maps.event.addListener(marker, 'click', (function(marker, place) {
 			return function() {
+				//concatinate the info and html elements for the info window
 				var contentString = '<div class="info_content">' +
 					'<h3>' + place.name + '</h3>' +
 					'<p>' +  Math.round( place.rating * 10 ) / 10 + '</p>' + 
@@ -54,8 +56,10 @@ function createMarkers(places) {
 					'<p><a href=\"individual_sample.html?place_id=' +
 					place.place_id + '\">Learn more</a></p>'
 					'</div>';
+				//set the above content to the window 
 				infowindow.setContent(contentString);
 				infowindow.setOptions({maxWidth: 300});
+				//open the info window
 				infowindow.open(map, marker);
 			}
 		}) (marker, place));
