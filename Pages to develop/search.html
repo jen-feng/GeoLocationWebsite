@@ -44,8 +44,8 @@
           <div class="submit-button">
             <input type="submit" value="search" class="button">
           </div>
-        </form>
-        <div class = "location-div" style="text-align: center;">
+        </form>        
+        <div class = "location">
           <button onclick="getLocation()" class = "location-button">Search by Location</button>
           <div>
             <script>
@@ -56,7 +56,6 @@
                 x.innerHTML = "Geolocation is not supported by this browser.";
               }
             }
-
             function showPosition(position) {
               var text = document.getElementById('search');
               text.placeholder = "Latitude: " + position.coords.latitude + 

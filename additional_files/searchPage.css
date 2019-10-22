@@ -181,13 +181,16 @@ input[type="submit"]:hover {
 
 /*wrap around the button as a block*/
 .location-button {
-	padding-top: 15px;
 	display: block;
 }
 
-.location-div{text-align: center;}
+.location{
+	display: flex;
+	justify-content: center;
+	padding-top: 15px;
+  }
 
-/*styleing the search button*/
+/*styleing the location button*/
 .location-button{
 	border-radius: 5px;
 	background-color: #4caf50;
