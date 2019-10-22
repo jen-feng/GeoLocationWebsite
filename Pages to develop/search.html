@@ -27,7 +27,7 @@
         <form class="search-form" action="results_sample.html" name="search-form"> 
           <div class="search-container">
             <div class="searchbar">
-              <input type="search" name = "search" placeholder="What are you looking for?">
+              <input id = "search" type="search" name = "search" placeholder="What are you looking for?">
             </div>  
             <div class="ratings-container">
               <select id="ratings">
@@ -41,13 +41,14 @@
             </div>
           </div>
 
-          <button onclick="getLocation()">Try It</button>
+          <div class="submit-button">
+            <input type="submit" value="search" class="button">
+          </div>
+        </form>
+        <div class = "location-div" style="text-align: center;">
+          <button onclick="getLocation()" class = "location-button">Search by Location</button>
           <div>
-            <p id="demo"></p>
-
             <script>
-            var x = document.getElementById("demo");
-
             function getLocation() {
               if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -57,15 +58,13 @@
             }
 
             function showPosition(position) {
-              x.innerHTML = "Latitude: " + position.coords.latitude + 
-              "<br>Longitude: " + position.coords.longitude;
+              var text = document.getElementById('search');
+              text.placeholder = "Latitude: " + position.coords.latitude + 
+              " Longitude: " + position.coords.longitude;;
             }
             </script>
-        </div>
-          <div class="submit-button">
-            <input type="submit" value="search" class="button">
           </div>
-        </form>
+      </div>
       </div>
     </div>
     <footer>

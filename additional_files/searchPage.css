@@ -178,6 +178,33 @@ input[type="submit"]:hover {
 	padding-bottom: 20px;
 }
 
+
+/*wrap around the button as a block*/
+.location-button {
+	padding-top: 15px;
+	display: block;
+}
+
+.location-div{text-align: center;}
+
+/*styleing the search button*/
+.location-button{
+	border-radius: 5px;
+	background-color: #4caf50;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	font-size: 13px;
+	height: 50px;
+	width: 100px;
+}
+
+/*change color when search button is hovered*/
+.location-button:hover {
+	background-color: #3e8e41;
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 /*change some style when showing in a smaller screen size*/
 @media(max-width: 600px) {
