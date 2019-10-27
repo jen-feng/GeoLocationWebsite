@@ -44,12 +44,15 @@
           <div class="submit-button">
             <input type="submit" value="search" class="button">
           </div>
-        </form>        
-        <div class = "location">
-          <button onclick="getLocation()" class = "location-button">Search by Location</button>
-          <div>
-            <script>
-            function getLocation() {
+        </form>
+
+          <script>
+          function confirmFunction() {
+            if (confirm("Pressing confirm will share your location with this app.")){
+              getLocation();
+            }
+          }
+          function getLocation() {
               if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
               } else { 
@@ -61,8 +64,11 @@
               text.placeholder = "Latitude: " + position.coords.latitude + 
               " Longitude: " + position.coords.longitude;;
             }
-            </script>
-          </div>
+
+          </script>        
+
+        <div class = "location">
+        <button onclick="confirmFunction()" class = "location-button">Search by Location</button>
       </div>
       </div>
     </div>
