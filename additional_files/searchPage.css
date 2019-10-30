@@ -184,14 +184,15 @@ input[type="submit"]:hover {
 	display: block;
 }
 
-.location{
-	display: flex;
-	justify-content: center;
-	padding-top: 15px;
-  }
+.location {
+	margin: auto;
+	display: inline-block;
+	text-align: center;
+	vertical-align: bottom;
+}
 
 /*styleing the location button*/
-.location-button{
+.location-button {
 	border-radius: 5px;
 	background-color: #4caf50;
 	border: none;
@@ -200,7 +201,13 @@ input[type="submit"]:hover {
 	text-decoration: none;
 	font-size: 13px;
 	height: 50px;
-	width: 100px;
+	border-radius: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 0.9em;
+	width: 100%;
+	color: white;
+	margin-top: 10px;
 }
 
 /*change color when search button is hovered*/

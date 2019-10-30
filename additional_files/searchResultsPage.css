@@ -293,6 +293,33 @@ h3 {
 	margin: 0;
 }
 
+.location {
+	margin: auto;
+	display: inline-block;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+/*styleing the location button*/
+.location-button {
+	border-radius: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 48px;
+	font-size: 0.9em;
+	width: 100%;
+	outline: none;
+	border-style: none;
+	background-color: #4CAF50;
+	color: white;
+	margin-top: 10px;
+}
+
+/*change color when search button is hovered*/
+.location-button:hover {
+	background-color: #3e8e41;
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
 	padding-top: 20px;
