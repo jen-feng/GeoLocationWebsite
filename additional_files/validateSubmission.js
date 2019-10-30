@@ -18,7 +18,7 @@ function validateStoreName() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters.";
+			element.innerHTML = "Field can only include letters and spaces.";
 		}
 	}
 	//show error message

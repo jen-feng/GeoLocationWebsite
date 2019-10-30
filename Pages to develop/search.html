@@ -6,6 +6,7 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../additional_files/searchPage.css" >
+    <script  type="text/javascript" src="../additional_files/search.js"></script>
   </head>
   <body>
     <header id="header" class="group">
@@ -40,36 +41,13 @@
               </select>
             </div>
           </div>
-
           <div class="submit-button">
             <input type="submit" value="search" class="button">
           </div>
-        </form>
-
-          <script>
-          function confirmFunction() {
-            if (confirm("Pressing confirm will share your location with this app.")){
-              getLocation();
-            }
-          }
-          function getLocation() {
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-              } else { 
-                x.innerHTML = "Geolocation is not supported by this browser.";
-              }
-            }
-            function showPosition(position) {
-              var text = document.getElementById('search');
-              text.placeholder = "Latitude: " + position.coords.latitude + 
-              " Longitude: " + position.coords.longitude;;
-            }
-
-          </script>        
-
+        </form>    
         <div class = "location">
-        <button onclick="confirmFunction()" class = "location-button">Search by Location</button>
-      </div>
+          <button onclick="getLocation()" class = "location-button">Search by My Location</button>
+        </div>
       </div>
     </div>
     <footer>
