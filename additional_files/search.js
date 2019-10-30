@@ -9,6 +9,6 @@ function getLocation() {
 
 function showPosition(position) {
 	var element = document.getElementById('search');
-	element.placeholder = "Latitude: " + position.coords.latitude + 
+	element.value = "Latitude: " + position.coords.latitude + 
 	" Longitude: " + position.coords.longitude;
 }

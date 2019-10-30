@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../additional_files/searchResultsPage.css" >
+    <script  type="text/javascript" src="../additional_files/search.js"></script>
   </head>
   <body>
     <header id="header" class="group">
@@ -26,7 +27,7 @@
       <form class="container-box" action="results_sample.html" name="search-form" > 
         <div class="search-container">
           <div class="searchbar">
-            <input type="search" name = "search" placeholder="What are you looking for?">
+            <input type="search" name="search" id="search" placeholder="What are you looking for?">
           </div>  
           <div class="ratings-container">
             <select id="ratings">
@@ -42,7 +43,8 @@
             <input type="submit" value="search" class="button">
           </div>
           <div class = "location">
-            <button onclick="getLocation()" class = "location-button">Search by My Location</button>
+            <!--explicitly specify the button type to prevent submitting the form-->
+            <button type="button" onclick="getLocation()" class = "location-button">Search by My Location</button>
           </div>
         </div>
       </form>

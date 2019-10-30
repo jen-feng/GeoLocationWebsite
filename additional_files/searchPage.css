@@ -180,13 +180,9 @@ input[type="submit"]:hover {
 
 
 /*wrap around the button as a block*/
-.location-button {
-	display: block;
-}
-
 .location {
+	display: block;
 	margin: auto;
-	display: inline-block;
 	text-align: center;
 	vertical-align: bottom;
 }
@@ -205,7 +201,6 @@ input[type="submit"]:hover {
 	padding-left: 15px;
 	padding-right: 15px;
 	font-size: 0.9em;
-	width: 100%;
 	color: white;
 	margin-top: 10px;
 }
