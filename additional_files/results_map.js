@@ -1,13 +1,13 @@
 var map;
 
 function initMap() {
-	//lattitude and longitude for Pet Valu
+	//hard-coded lattitude and longitude for Pet Valu for now
 	var location = {lat: 43.2626744, lng: -79.9526672};
 	
 	//Create a map centered in the defined location
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: location, //center the map with the defined location
-		zoom: 14  // zoom level 15 is city view 
+		zoom: 14  // zoom level 14 is close to city view 
 	});
 	
 	//use PlcaesService to get details
@@ -15,6 +15,7 @@ function initMap() {
 
 	// Perform a text search which will return a list of places
 	service.textSearch({
+		//a hardcoded key words for now
 		location: location, radius: 5, query: 'pet in dundas'},
 		function(results, status) {
 			if (status == google.maps.places.PlacesServiceStatus.OK) {
