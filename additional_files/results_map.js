@@ -16,7 +16,7 @@ function initMap() {
 	// Perform a text search which will return a list of places
 	service.textSearch({
 		//a hardcoded key words for now
-		location: location, radius: 5, query: 'pet in dundas'},
+		location: location, query: 'pet in dundas', locationBias: 1500},
 		function(results, status) {
 			if (status == google.maps.places.PlacesServiceStatus.OK) {
 				//set the markers return from the list of places
