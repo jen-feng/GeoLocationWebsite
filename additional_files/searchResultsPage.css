@@ -320,6 +320,13 @@ h3 {
 	background-color: #3e8e41;
 }
 
+.field-validation-error {
+	color: red;
+	margin-top: 5px;
+	font-size: 13px;
+	display: none;
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 .footer {
 	padding-top: 20px;

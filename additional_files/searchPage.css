@@ -210,6 +210,13 @@ input[type="submit"]:hover {
 	background-color: #3e8e41;
 }
 
+.field-validation-error {
+	color: red;
+	margin-top: 5px;
+	font-size: 13px;
+	display: none;
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 /*change some style when showing in a smaller screen size*/
 @media(max-width: 600px) {
