@@ -18,7 +18,7 @@ function validateStoreName() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters.";
+			element.innerHTML = "Field can only include letters and spaces.";
 		}
 	}
 	//show error message
@@ -116,13 +116,12 @@ function handleError(error) {
 	//check what kind of error
 	switch(error.code) {
 		case error.PERMISSION_DENIED:
-			element.innerHTML = "Permission denied."
+			element.innerHTML = "Permission denied. Please change permission setting from your browser."
 			break;
 		default:
 			element.innerHTML = "An unknown error occurred."
 	}
 	//show error message 
-	var form = document.SubmissionForm;
 	element.style.display = "block";
 }
 

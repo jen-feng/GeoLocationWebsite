@@ -56,19 +56,29 @@ function initMap() {
 				animation: google.maps.Animation.DROP,
 				//marker set on the defined location
 				position: place.geometry.location,
-				//set the label to locate under the icon
-				label: {
-					color: 'red',
-					fontWeight: 'bold',
-					text: place.name
-				},
-			
-				//in order to put a label below an icon, a custom icon is needed
-				icon: {
-					labelOrigin: new google.maps.Point(11, 50),  //the location for the label
-					url: '../additional_files/marker_red.png'
-				}
+				title: place.name
 			});
+			
+			var infowindow = new google.maps.InfoWindow();
+			//concatinate the info and html elements for the info window
+			var contentString = '<div class="info_content">' +
+				'<h3>' + place.name + '</h3>' +
+				'<p>' +  Math.round( place.rating * 10 ) / 10 + '</p>' + 
+				'<p>' + place.formatted_address + '</p>' +
+				'</div>';
+			google.maps.event.addListener(marker, 'click', (function(marker, place) {
+				return function() {
+					//set the above content to the window 
+					infowindow.setContent(contentString);
+					infowindow.setOptions({maxWidth: 300});
+					//open the info window
+					infowindow.open(map, marker);
+				}
+			}) (marker, place));
+			//show info window when page is loaded
+			infowindow.setContent(contentString);
+			infowindow.setOptions({maxWidth: 300});
+			infowindow.open(map, marker);
 		}
 	});
 
