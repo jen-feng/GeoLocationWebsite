@@ -10,19 +10,7 @@
     <script  type="text/javascript" src="../additional_files/search.js"></script>
   </head>
   <body>
-    <header id="header" class="group">
-      <div class="logo">
-        <img src="../additional_files/logo.png" id="img_logo" alt="Logo">
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href="search.html">Home</a></li>
-          <li><a href="">News</a></li>
-          <li><a href="submission.html">Store Submission</a></li>
-          <li><a href="registration.html">Registration</a></li>
-        </ul>
-      </div>
-    </header>
+    <?php include 'header.php' ?>
     <div class="body-content">
       <form class="container-box" action="results_sample.html" name="search-form" > 
         <div class="search-container">
@@ -52,7 +40,7 @@
       <div class="results-container">
         <div class="map-container">
           <div id="map"></div>
-          <script type="text/javascript" src="../additional_files/results_map.js"></script>
+          <script type="text/javascript" src="additional_files/results_map.js"></script>
           <div class="map-border">
             <p id="map_title">Results on Map</p>
           </div>
@@ -70,7 +58,7 @@
                 <!--div class to includes store image , name and other info-->
                 <div class="store-container">
                   <div class="store-image">
-                    <a href="individual_sample.html"><img src="../additional_files/store.png" alt="Store Image"></a>
+                    <a href="individual_sample.html"><img src="additional_files/store.png" alt="Store Image"></a>
                   </div>
                   <div class="store-name">
                     <h1><a href="individual_sample.html">Pet Valu</a></h1>
@@ -86,7 +74,7 @@
               <td>
                 <div class="store-container">
                   <div class="store-image">
-                    <a href=""><img src="../additional_files/store.png" alt="Store Image"></a>
+                    <a href=""><img src="additional_files/store.png" alt="Store Image"></a>
                   </div>
                   <div class="store-name">
                     <h1><a href="">Dundas Valley Groomers</a></h1>
@@ -102,7 +90,7 @@
               <td>
                 <div class="store-container">
                   <div class="store-image">
-                    <a href=""><img src="../additional_files/store.png" alt="Store Image"></a>
+                    <a href=""><img src="additional_files/store.png" alt="Store Image"></a>
                   </div>
                   <div class="store-name">
                     <h1><a href="">Animal House Professional</a></h1>
@@ -118,7 +106,7 @@
               <td>
                 <div class="store-container">
                   <div class="store-image">
-                    <a href=""><img src="../additional_files/store.png" alt="Store Image"></a>
+                    <a href=""><img src="additional_files/store.png" alt="Store Image"></a>
                   </div>
                   <div class="store-name">
                     <h1><a href="">Global Pet Foods</a></h1>
@@ -138,11 +126,7 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer">
-        All rights reserved
-      </div>
-    </footer>
+	<?php include 'footer.php' ?>
     <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyhVAtMlWygSGml79zYG-WnGlLxU9B3ho&libraries=places&callback=initMap"></script>
   </body>
 </html>

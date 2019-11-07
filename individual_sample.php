@@ -21,19 +21,7 @@
     </title>
   </head>
   <body>
-    <header id="header" class="group">
-      <div class="logo">
-        <img src="../additional_files/logo.png" id="img_logo" alt="Logo">
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href="search.html">Home</a></li>
-          <li><a href="">News</a></li>
-          <li><a href="submission.html">Store Submission</a></li>
-          <li><a href="registration.html">Registration</a></li>
-        </ul>
-      </div>
-    </header>
+    <?php include 'header.php' ?>
     <div class="results-container">
       <div class="top-container">
         <div class="map-container">
@@ -159,11 +147,7 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer">
-        All rights reserved
-      </div>
-    </footer>
+	<?php include 'footer.php' ?>
     <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyhVAtMlWygSGml79zYG-WnGlLxU9B3ho&libraries=places&callback=initMap"></script>
   </body>
 </html>

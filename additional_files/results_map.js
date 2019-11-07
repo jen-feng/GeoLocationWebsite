@@ -54,7 +54,7 @@ function createMarkers(places) {
 					'<h3>' + place.name + '</h3>' +
 					'<p>' +  Math.round( place.rating * 10 ) / 10 + '</p>' + 
 					'<p>' + place.formatted_address + '</p>' +
-					'<p><a href=\"individual_sample.html?place_id=' +
+					'<p><a href=\"individual_sample.php?place_id=' +
 					place.place_id + '\">Learn more</a></p>'
 					'</div>';
 				//set the above content to the window 

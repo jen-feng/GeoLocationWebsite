@@ -5,27 +5,15 @@
       Search Form
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../additional_files/searchPage.css" >
-    <script  type="text/javascript" src="../additional_files/search.js"></script>
+    <link rel="stylesheet" href="/additional_files/searchPage.css" >
+    <script  type="text/javascript" src="/additional_files/search.js"></script>
   </head>
   <body>
-    <header id="header" class="group">
-      <div class="logo">
-        <img src="../additional_files/logo.png" id="img_logo" alt="Logo">
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href="search.html">Home</a></li>
-          <li><a href="">News</a></li>
-          <li><a href="submission.html">Store Submission</a></li>
-          <li><a href="registration.html">Registration</a></li>
-        </ul>
-      </div>
-    </header>
+    <?php include 'header.php' ?>
     <div class="body-content">
       <div class="container-box">
         <h1 class="title">Find A Pet Here</h1>
-        <form class="search-form" action="results_sample.html" name="search-form"> 
+        <form class="search-form" action="results_sample.php" name="search-form"> 
           <div class="search-container">
             <div class="searchbar">
               <input id = "search" type="search" name = "search" placeholder="What are you looking for?">
@@ -52,10 +40,6 @@
         </form>
       </div>
     </div>
-    <footer>
-      <div class="footer">
-        All rights reserved
-      </div>
-    </footer>
+	<?php include 'footer.php' ?>
   </body>
 </html>
