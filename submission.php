@@ -16,7 +16,7 @@
       <div class="container-box">
         <div class="auth-form">
           <p class="title-form">Store Submission</p>
-          <form action="registration" method="post" name="SubmissionForm" onsubmit="return validateForm();">
+          <form action="sql/addUser.php" method="POST" name="SubmissionForm" onsubmit="return validateForm();">
             <div class="input-wrap">
               <label class="rf-label">Store name</label>
               <input type="text" class="rf-input" name="storename" placeholder="Store name" onblur="validateStoreName()">

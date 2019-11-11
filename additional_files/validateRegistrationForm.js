@@ -76,14 +76,14 @@ function validatePassword() {
 	//this element is the error message for validating password
 	element = document.getElementById("error_msg_psw");
 	//password just need to be at least 8 characters long
-	if (form.usrpsw.value != "" && form.usrpsw.value.length >= 8) {
+	if (form.password.value != "" && form.password.value.length >= 8) {
 		//hide error message
-		form.usrpsw.style.outline = "none";
+		form.password.style.outline = "none";
 		element.style.display = "none";
 		return true;
 	}
 	//show error message
-	form.usrpsw.style.outline = "1px solid red";
+	form.password.style.outline = "1px solid red";
 	element.style.display = "block";
 	return false;
 }
