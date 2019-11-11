@@ -7,8 +7,10 @@
           <li><a href="search.php">Home</a></li>
           <li><a href="">News</a></li>
           <li><a href="submission.php">Store Submission</a></li>
-          <li><a href="registration.php">Registration</a></li>
-		  <li id="sign_in"><a href="signin.php">Sign in</a></li>
+          <div class="account">
+            <li><a href="signin.php">Sign In</a></li>
+            <li id="registration"><a href="registration.php">Registration</a></li>
+          </div>
         </ul>
       </div>
     </header>
@@ -55,9 +57,20 @@ li a {
 	font-size: 20px;
 }
 
+.account {
+	float: right;
+}
+
+#registration {
+	background-color: #bf0000;
+}
 
 /*change color when mouse hover to the corresponding menu item*/
 li a:hover {
 	background-color: #111;
 } 
+
+#registration a:hover {
+	background: #7a003c;
+}
 	</style>
