@@ -16,6 +16,7 @@
     <meta name="twitter:creator" content="@USERNAME">
     <link rel="stylesheet" href="../additional_files/objectPage.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="../additional_files/showReviewForm.js"></script>
     <title>
       Object Page
     </title>
@@ -147,6 +148,48 @@
         </div>
       </div>
     </div>
+	<button id="reviewButton" onclick="showReview();">Write a Review</button>
+	<div id="modalView" class="modal-box">
+	  <div class="modal-content">
+	    <button class="close" onclick="closeReview();">close &times;</button>
+	    <div class="title-form">
+		  <h4>Share your experience</h4>
+		  <span class="review-des">Tell customers what you experienced by rating and reviewing the store.</span>
+		</div>
+	    <form action="sql/addReview.php" method="POST" name="ReviewForm" id="reviewForm">
+		  <div class="auth-form">
+		    <div class="ratings-container">
+		      <label class="rf-label rating">Rate it *</label>
+              <select class="rf-input" id="ratings">
+                <option value="" disabled selected hidden>Ratings</option>
+                <option value="5">✩✩✩✩✩</option>
+                <option value="4">✩✩✩✩</option>
+                <option value="3">✩✩✩</option>
+                <option value="2">✩✩</option>
+                <option value="1">✩</option>
+              </select>
+            </div>
+            <div class="input-wrap">
+              <label class="rf-label fname-label">Review *</label>
+              <textarea class="rf-input description" form="reviewForm" name="description" placeholder="Enter review here..." onblur="validateFirstName()"></textarea>
+              <label class="field-validation-error" id="error_msg_fn">This field is required.</label>
+			</div>
+            <div class="input-wrap">
+			  <label class="rf-label lname-label">Title *</label>
+              <input type="text" class="rf-input lname-input" name="title" id= "reviewTitle" placeholder="Last name" onblur="validateLastName()">
+              <label class="field-validation-error" id="error_msg_ln">This field is required.</label>
+            </div>
+            <div class="input-wrap">
+              <label class="rf-label">Upload image (optional)</label>
+              <input accept="image/*" type="file" class="rf-input image" name="imageupload" onchange="return validateImageSize(this)">
+              <label class="field-validation-error" id="error_msg_img">Your image can not exceed 4MB.</label>
+            </div>
+            <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
+			<input type="submit" name="register" value="Submit">
+	      </div>
+		</form>
+	  </div>
+	</div>
 	<?php include 'footer.php' ?>
     <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyhVAtMlWygSGml79zYG-WnGlLxU9B3ho&libraries=places&callback=initMap"></script>
   </body>

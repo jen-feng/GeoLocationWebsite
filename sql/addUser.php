@@ -2,7 +2,7 @@
 <?php 
     // using php data objects we set the login parameters for the database. 
     // More information here: https://www.php.net/manual/en/intro.pdo.php
-    $pdo = new PDO('mysql:host=database-2.cqlrcsfkfaxv.us-east-1.rds.amazonaws.com;dbname=test', DB_USERNAME, DB_PASSWORD);
+    $pdo = new PDO('mysql:host=localhost;dbname=test', DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -21,11 +21,11 @@
         }
 
         // Redirect to login page
-        header("Location: https://{$_SERVER['HTTP_HOST']}/signin.php");
+        header("Location: ../registerSuccessPage.php");
 
     } else {
         // This path is dependent on where the root of your documents is located.
         // For this it is made to point back to the register file if registering has failed.
-        header("Location: https://{$_SERVER['HTTP_HOST']}/registration.php");
+        header("Location: ../registration.php");
     }
 ?>

@@ -26,12 +26,22 @@ html, body {
 	color: #595959;
 	background-color: #fff;  /*color goes well with the background image*/
 	border: 1px solid #ccc;
-	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-top: 10%;
+	margin-bottom: 10%;
 	margin-left: auto;         /*this auto margin left and right will set to be at the center*/
 	margin-right: auto;
 	width: 320px;
 	transition: all 300ms ease-out; /*additional transition for a smooth show up for the form*/
+}
+
+#success {
+	margin-top: 10%;
+	margin-bottom: 20%;
+}
+
+h3 {
+	text-align: justify;
+	font-size: 15px;
 }
 
 /*the form container for inputs, all input would have the same width with this padding*/
@@ -124,7 +134,7 @@ input[type="submit"]:hover {
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 /*change some style when showing in a smaller screen size*/
-@media(max-width: 600px) {
+@media(max-width: 670px) {
 	/*change logo size smaller*/
 	#img_logo {
 		height: 3em;

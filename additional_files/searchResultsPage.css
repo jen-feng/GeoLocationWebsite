@@ -281,14 +281,13 @@ h3 {
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 /*change some style when showing in a smaller screen size*/
-@media(max-width: 600px) {
+@media(max-width: 670px) {
 	#img_logo {
 		height: 3em;
 	}
 
 	ul a {
 		font-size: 80%;
-		width: 100%;
 		text-align: center;
 	}
 
