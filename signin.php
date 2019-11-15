@@ -16,15 +16,15 @@
       <div class="container-box">
         <div class="auth-form">
           <p class="title-form">Sign In</p>
-          <form action="registration" method="post" name="RegistrationForm">
+          <form action="sql/getUser.php" method="POST" name="RegistrationForm">
             <div class="input-wrap">
               <label class="field-validation-error" id="error_msg_email">Please enter your email address.</label>
-              <input type="email" class="rf-input email-input" name="email" placeholder="example@example.com" onblur="validateEmail()">
+              <input type="email" class="rf-input email-input" name="email" id="email" placeholder="example@example.com" onblur="validateEmail()">
               <label class="rf-label email-label">Email address</label>
             </div>
             <div class="input-wrap">
               <label class="field-validation-error" id="error_msg_psw">Must be at least 8 characters long.</label>
-              <input type="password" class="rf-input psw-input" name="usrpsw" placeholder="Password" onblur="validatePassword()">
+              <input type="password" class="rf-input psw-input" name="password" id="password" placeholder="Password" onblur="validatePassword()">
               <label class="rf-label password-label">Password</label>
             </div>
             <input type="submit" name="signin" value="sign in">

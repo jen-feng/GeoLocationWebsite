@@ -8,20 +8,38 @@
 
     if (isset($_POST['email']) && isset($_POST['password'])){
 
-        // Query we are using to check if the user is legit
-        $sql = "INSERT INTO users (Email, FirstName, LastName, Password) VALUES (?, ?, ?, ?)";
+		$sql = "SELECT count(*) FROM users WHERE Email = ?";
+		$stmnt = $pdo->prepare($sql);
+		try {
+			$stmnt->execute([$_POST['email']]);
+			
+			if ($stmnt->fetchColumn() != 0) {
+				echo "Your email address is linked to an existing account. Redirecting to Sign in Page ...";
+				echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/signin.php\"/>";
+			} else {		
+				// Query we are using to check if the user is legit
+				$sql = "INSERT INTO users (Email, PasswordHash, FirstName, LastName) VALUES (?, ?, ?, ?)";
+				// Prepared statements: For when we don't have all the parameters so we store a template to be executed
+				// More information here: https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+				$stmnt = $pdo->prepare($sql);
+				
+				//hashed the user password and store in sql
+				$hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
+				
+				try {
+					$stmnt->execute([$_POST['email'], $hashed, $_POST['firstname'], $_POST['lastname']]);
+				} catch (PDOException $e) {
+					echo $e->getMessage();
+				}
 
-        // Prepared statements: For when we don't have all the parameters so we store a template to be executed
-        // More information here: https://www.w3schools.com/php/php_mysql_prepared_statements.asp
-        $stmnt = $pdo->prepare($sql);
-        try {
-            $stmnt->execute([$_POST['email'], $_POST['password'], $_POST['firstname'], $_POST['lastname']]);
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
+				// Redirect to login page
+				header("Location: ../registerSuccessPage.php");
+			}
+				
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
 
-        // Redirect to login page
-        header("Location: ../registerSuccessPage.php");
 
     } else {
         // This path is dependent on where the root of your documents is located.
