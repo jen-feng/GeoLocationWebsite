@@ -16,6 +16,7 @@
       <div class="container-box">
         <div class="auth-form">
           <p class="title-form">Store Submission</p>
+		  <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
           <form action="sql/addUser.php" method="POST" name="SubmissionForm" onsubmit="return validateForm();">
             <div class="input-wrap">
               <label class="rf-label">Store name</label>
@@ -47,6 +48,11 @@
             <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
             <input type="submit" name="submit" value="submit">
           </form>
+		  <?php else : ?>
+		  <h3>To add a store, you need to <a href="signin.php">sign in</a>. <br>
+		  Don't have an account? You can <a href="registration.php">register an account.</a></h3>
+		  <?php include "inc/control.inc"; ?>
+		  <?php endif; ?>
         </div>
       </div>
     </div>

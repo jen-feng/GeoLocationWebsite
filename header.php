@@ -1,16 +1,33 @@
-    <header id="header" class="group">
+<?php 
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	} 
+?> 
+	<header id="header" class="group">
       <div class="logo">
         <img src="../additional_files/logo.png" id="img_logo" alt="Logo">
       </div>
       <div class="menu">
         <ul>
           <li><a href="search.php">Home</a></li>
-          <li><a href="">News</a></li>
+		  <li><a href="">About</a></li>
           <li><a href="submission.php">Store Submission</a></li>
-          <div class="account">
-            <li><a href="signin.php">Sign In</a></li>
-            <li id="registration"><a href="registration.php">Registration</a></li>
+          <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
+		  <div class="account-container">
+              <div class="account user-profile"><img id="user_profile" src="additional_files/user_profile.jpg"></div>
+		      <div class="account user-name"><?php echo $_SESSION['username']; ?></div>
+			  <div class="account user-logout">
+					<small>
+						<a href="signout.php" style="color: red;">logout</a>
+					</small>
+			  </div>
+		  </div>
+          <?php else : ?>
+		  <div class="auth-container">
+              <li><a href="signin.php">Sign In</a></li>
+			  <li id="registration"><a href="registration.php">Registration</a></li>
           </div>
+		  <?php endif; ?>
         </ul>
       </div>
     </header>
@@ -57,8 +74,28 @@ li a {
 	font-size: 20px;
 }
 
-.account {
+.account-container{
+	display: block;
 	float: right;
+	text-align: center;
+	padding: 10px 15px;
+	background-color: #974b00;
+}
+
+.auth-container {
+	float: right;
+}
+
+.account {
+	display: inline-block;
+	margin: auto;
+	vertical-align: middle;
+}
+
+.account.user-name {
+	font-size: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #registration {
@@ -69,6 +106,10 @@ li a {
 li a:hover {
 	background-color: #111;
 } 
+
+#user_profile {
+	max-height: 40px;
+}
 
 #registration a:hover {
 	background: #7a003c;

@@ -1,23 +1,13 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta property="og:url" content="http://52.70.212.150/individual_sample.html"/>
-    <meta property="og:type" content="website" />
-    <meta property="og:title"  content="Lorem Ipsum: I found it!" />
-    <meta property="og:description" content="This chain of pet stores is open all around the world and offers a great service to new and old pet owners." />
-    <meta property="og:image" content="http://52.70.212.150/additional_files/petValuMap.jpg" />
-    <meta property="fb:app_id" content="451521718789556">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Lorem Ipsum: I found it!">
-    <meta name="twitter:description" content="This chain of pet stores is open all around the world and offers a great service to new and old pet owners.">
-    <meta name="twitter:image" content="http://52.70.212.150/additional_files/petValuMap.jpg">
-    <meta name="twitter:site" content="@USERNAME">
-    <meta name="twitter:creator" content="@USERNAME">
     <link rel="stylesheet" href="../additional_files/objectPage.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../additional_files/showReviewForm.js"></script>
-    <title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<title>
       Object Page
     </title>
   </head>
@@ -148,7 +138,12 @@
         </div>
       </div>
     </div>
-	<button id="reviewButton" onclick="showReview();">Write a Review</button>
+	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK"): ?>
+	  <button id="reviewButton" onclick="showReview();">Write a Review</button>
+	<?php else: ?>
+	  <form action="signin.php"><input type="submit" value="Sign in to Write a Review" id="signInButton">
+	  <?php include "inc/control.inc"; ?>
+	<?php endif; ?>
 	<div id="modalView" class="modal-box">
 	  <div class="modal-content">
 	    <button class="close" onclick="closeReview();">close &times;</button>
