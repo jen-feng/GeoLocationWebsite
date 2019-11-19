@@ -93,7 +93,7 @@ h3 {
 }
 
 /*style for the paragraph in the form*/
-.register-legal {
+.register-legal, p {
 	text-align: justify;
 	font-size: 0.8em;
 }

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--structure based on the registrationPage.html pretty much the same-->
 <html>
@@ -17,7 +18,7 @@
         <div class="auth-form">
           <p class="title-form">Store Submission</p>
 		  <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
-          <form action="sql/addUser.php" method="POST" name="SubmissionForm" onsubmit="return validateForm();">
+          <form action="sql/addStoreObject.php" method="POST" name="SubmissionForm" onsubmit="return validateForm();">
             <div class="input-wrap">
               <label class="rf-label">Store name</label>
               <input type="text" class="rf-input" name="storename" placeholder="Store name" onblur="validateStoreName()">
@@ -31,8 +32,8 @@
             <div class="input-wrap">
               <label class="rf-label">Coordinates</label>
               <div class="coordinates-container">
-                <input type="number" step="any" class="rf-input latitude" id="latitude" placeholder="Latitude" onblur="validateLatitude()">
-                <input type="number" step="any" class="rf-input longitude" id="longitude" placeholder="Longitude" onblur="validateLongitude()">
+                <input type="number" step="any" class="rf-input latitude" id="latitude" name="latitude" placeholder="Latitude" onblur="validateLatitude()">
+                <input type="number" step="any" class="rf-input longitude" id="longitude" name="longitude" placeholder="Longitude" onblur="validateLongitude()">
               </div>
               <label class="field-validation-error" id="error_msg_ll">This field is required.</label>
               <div class="button-container">

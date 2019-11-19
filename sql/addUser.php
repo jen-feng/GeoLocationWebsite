@@ -8,7 +8,7 @@
 
     if (isset($_POST['email']) && isset($_POST['password'])){
 
-		$sql = "SELECT count(*) FROM users WHERE Email = ?";
+		$sql = "SELECT count(*) FROM users WHERE email = ?";
 		$stmnt = $pdo->prepare($sql);
 		try {
 			$stmnt->execute([$_POST['email']]);
@@ -18,7 +18,7 @@
 				echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/signin.php\"/>";
 			} else {		
 				// Query we are using to check if the user is legit
-				$sql = "INSERT INTO users (Email, PasswordHash, FirstName, LastName) VALUES (?, ?, ?, ?)";
+				$sql = "INSERT INTO users (email, passwordhash, firstname, lastname, user_id) VALUES (?, ?, ?, ?, ?)";
 				// Prepared statements: For when we don't have all the parameters so we store a template to be executed
 				// More information here: https://www.w3schools.com/php/php_mysql_prepared_statements.asp
 				$stmnt = $pdo->prepare($sql);
@@ -27,20 +27,19 @@
 				$hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				
 				try {
-					$stmnt->execute([$_POST['email'], $hashed, $_POST['firstname'], $_POST['lastname']]);
+					$uniqid = uniqid(md5(time().mt_rand(1, 1000000)));
+					if ($stmnt->execute([$_POST['email'], $hashed, $_POST['firstname'], $_POST['lastname'], $uniqid])) {
+						//show success of registration
+						header("Location: ../registerSuccessPage.php");
+					}
 				} catch (PDOException $e) {
 					echo $e->getMessage();
 				}
-
-				// Redirect to login page
-				header("Location: ../registerSuccessPage.php");
 			}
 				
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
-
-
     } else {
         // This path is dependent on where the root of your documents is located.
         // For this it is made to point back to the register file if registering has failed.

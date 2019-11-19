@@ -13,7 +13,7 @@
 	
     if (isset($_POST['email']) && isset($_POST['password'])){
 		
-		$sql = "SELECT * FROM users WHERE Email = ?";
+		$sql = "SELECT * FROM users WHERE email = ?";
 		$stmnt = $pdo->prepare($sql);
  
 		try {
@@ -22,9 +22,10 @@
 			$stmnt->execute([$_POST['email']]);
 			$user = $stmnt->fetchAll(PDO::FETCH_ASSOC);
 			
-			if ($user && password_verify($_POST['password'],  $user[0]['PasswordHash'])) {
+			if ($user && password_verify($_POST['password'],  $user[0]['passwordhash'])) {
 				$_SESSION["loggedin"] = "OK";
-				$_SESSION["username"] = $user[0]['FirstName'];
+				$_SESSION["username"] = $user[0]['firstname'];
+				$_SESSION["user_id"] = $user[0]['user_id'];
 				
 				//check if user was in a page before then redirect back after signing in
 				if (isset($_SESSION['current_page'])) {	
@@ -43,6 +44,5 @@
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
-
     }
 ?>
