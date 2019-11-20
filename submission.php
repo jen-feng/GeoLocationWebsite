@@ -18,10 +18,10 @@
         <div class="auth-form">
           <p class="title-form">Store Submission</p>
 		  <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
-          <form action="sql/addStoreObject.php" method="POST" name="SubmissionForm" onsubmit="return validateForm();">
+          <form action="sql/addStoreObject.php" method="POST" name="SubmissionForm" onsubmit="return validateStoreForm();">
             <div class="input-wrap">
               <label class="rf-label">Store name</label>
-              <input type="text" class="rf-input" name="storename" placeholder="Store name" onblur="validateStoreName()">
+              <input type="text" class="rf-input" name="title" placeholder="Store name" onblur="validateTitle()">
               <label class="field-validation-error" id="error_msg_sn">This field is required.</label>
             </div>
             <div class="input-wrap">

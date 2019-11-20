@@ -1,20 +1,26 @@
-function validateForm() {
+function validateStoreForm() {
 	var x = false;
-	x = validateStoreName() && validateDescription() && validateLongitude() && validateLatitude() && validateImageSize();
+	x = validateTitle() && validateDescription() && validateLongitude() && validateLatitude() && validateImageSize();
 	return x;
 }
 
-function validateStoreName() {
+function validateReviewForm() {
+	var x = false;
+	x = validateRating() && validateDescription() && validateTitle() ;
+	return x;
+}
+
+function validateTitle() {
 	var form = document.SubmissionForm;
 	//this element is the error message for validating the store name
 	element = document.getElementById("error_msg_sn");
 	//only letters
 	var regex = /^[a-z\ ]+$/ ; 
-	if (form.storename.value != "") {
+	if (form.title.value != "") {
 		//check the input whether it satisfies the regular expression
-		if (regex.test(String(form.storename.value).toLowerCase())) {
+		if (regex.test(String(form.title.value).toLowerCase())) {
 			//hide error message
-			form.storename.style.outline = "none";
+			form.title.style.outline = "none";
 			element.style.display = "none";
 			return true;
 		} else {
@@ -22,7 +28,7 @@ function validateStoreName() {
 		}
 	}
 	//show error message
-	form.storename.style.outline = "1px solid red";
+	form.title.style.outline = "1px solid red";
 	element.style.display = "block";
 	return false;	
 }
@@ -142,5 +148,24 @@ function validateImageSize(image) {
 	image.value = "";
 	element.innerHTML = "File size can not exceed 2MB";
 	element.style.display = "block";
+	return false;
+}
+
+function validateRating() {
+	var form = document.SubmissionForm;
+	element = document.getElementById("error_msg_r");
+	rate = form.rating.value;
+	//check the value of latitude below
+	if (rate != "") {
+		//hide red border and previous error msg
+		form.rating.style.outline = "none";
+		element.style.display = "none";
+		return true;
+	}
+	//show red border and error msg
+	form.rating.style.outline = "1px solid red";
+	element.style.display = "block";
+	element.style.textAlign = "right";
+	element.innerHTML = "Please specify your rating.";
 	return false;
 }

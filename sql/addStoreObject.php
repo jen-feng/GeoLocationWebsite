@@ -15,7 +15,7 @@
 	$lat = $_POST['latitude'];
 	
 	//check again the input is not empty
-    if (isset($_POST['storename']) && isset($_POST['description']) && isset($lng) && isset($lat)){
+    if (isset($_POST['title']) && isset($_POST['description']) && isset($lng) && isset($lat)){
 
 		//url to get the response from google map api
 		$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lng."&key=".SECRET_KEY."&sensor=true";
@@ -33,7 +33,7 @@
 		
 			$stmnt = $pdo->prepare($sql);
 			try {
-				$stmnt->execute([$_POST['storename'], $formatted_address]);
+				$stmnt->execute([$_POST['title'], $formatted_address]);
 				
 				//check whether the store exists in the database
  				if ($stmnt->fetchColumn() != 0) {
@@ -48,7 +48,7 @@
 				
 					try {
 						//if insert successful, let the user know
-						if ($stmnt->execute([$_POST['storename'], $_POST['description'], $lat, $lng, $formatted_address, $_SESSION['user_id']])) {
+						if ($stmnt->execute([$_POST['title'], $_POST['description'], $lat, $lng, $formatted_address, $_SESSION['user_id']])) {
 							echo "<strong>Store successfully submitted. Redirecting ...</strong>";
 							echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/submission.php\"/>";
 						}

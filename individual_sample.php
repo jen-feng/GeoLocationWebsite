@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../additional_files/objectPage.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../additional_files/showReviewForm.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../additional_files/validateSubmission.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<title>
       Object Page
     </title>
@@ -139,6 +140,7 @@
       </div>
     </div>
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK"): ?>
+	  <?php include "inc/control.inc"; ?>
 	  <button id="reviewButton" onclick="showReview();">Write a Review</button>
 	<?php else: ?>
 	  <form action="signin.php"><input type="submit" value="Sign in to Write a Review" id="signInButton">
@@ -151,11 +153,11 @@
 		  <h4>Share your experience</h4>
 		  <span class="review-des">Tell customers what you experienced by rating and reviewing the store.</span>
 		</div>
-	    <form action="sql/addReview.php" method="POST" name="ReviewForm" id="reviewForm">
+	    <form action="sql/addReviewObject.php" method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();">
 		  <div class="auth-form">
 		    <div class="ratings-container">
 		      <label class="rf-label rating">Rate it *</label>
-              <select class="rf-input" id="ratings">
+              <select class="rf-input" id="ratings" name="rating" onblur="validateRating()">
                 <option value="" disabled selected hidden>Ratings</option>
                 <option value="5">✩✩✩✩✩</option>
                 <option value="4">✩✩✩✩</option>
@@ -163,16 +165,17 @@
                 <option value="2">✩✩</option>
                 <option value="1">✩</option>
               </select>
+			  <label class="field-validation-error" id="error_msg_r">This field is required.</label>
             </div>
             <div class="input-wrap">
               <label class="rf-label fname-label">Review *</label>
-              <textarea class="rf-input description" form="reviewForm" name="description" placeholder="Enter review here..." onblur="validateFirstName()"></textarea>
-              <label class="field-validation-error" id="error_msg_fn">This field is required.</label>
+              <textarea class="rf-input description" form="reviewForm" name="description" id="description" placeholder="Enter review here..." onblur="validateDescription()"></textarea>
+              <label class="field-validation-error" id="error_msg_d">This field is required.</label>
 			</div>
             <div class="input-wrap">
 			  <label class="rf-label lname-label">Title *</label>
-              <input type="text" class="rf-input lname-input" name="title" id= "reviewTitle" placeholder="Last name" onblur="validateLastName()">
-              <label class="field-validation-error" id="error_msg_ln">This field is required.</label>
+              <input type="text" class="rf-input lname-input" name="title" id= "title" placeholder="Title for your review" onblur="validateTitle()">
+              <label class="field-validation-error" id="error_msg_sn">This field is required.</label>
             </div>
             <div class="input-wrap">
               <label class="rf-label">Upload image (optional)</label>
