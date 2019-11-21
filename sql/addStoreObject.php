@@ -33,7 +33,9 @@
 		
 			$stmnt = $pdo->prepare($sql);
 			try {
-				$stmnt->execute([$_POST['title'], $formatted_address]);
+				$title = ucwords(strtolower($_POST['title']));
+				$stmnt->execute([$title, $formatted_address]);
+				$phone = "";
 				
 				//check whether the store exists in the database
  				if ($stmnt->fetchColumn() != 0) {
@@ -41,14 +43,30 @@
 					echo "The store you submitted is already in the data.";
 					echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/submission.php\"/>";
 				} else {
+					$data = $_POST['phone'];
+					//reformat phone if not null
+					if ($data != "") {
+						$unformat = "";
+						$dataArray = str_split($data);
+						foreach ($dataArray as $char) {
+							if (preg_match('/^\d{1}$/', $char)) {
+								$unformat = $unformat.$char;
+							}
+						}
+						if (preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $unformat,  $matches )) {
+							$phone = '('.$matches[1].')'.' '.$matches[2].'-'.$matches[3];
+						}
+					}
+					
 					//query for inserting to database if store does not exist
-					$sql = "INSERT INTO stores (storename, description, latitude, longitude, address, usersubmission) VALUES (?, ?, ?, ?, ?, ?)";
+					$sql = "INSERT INTO stores (storename, description, latitude, longitude, address, phone, email, website, usersubmission, date_submitted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 					// Prepared statements: For when we don't have all the parameters so we store a template to be executed
 					$stmnt = $pdo->prepare($sql);
 				
 					try {
 						//if insert successful, let the user know
-						if ($stmnt->execute([$_POST['title'], $_POST['description'], $lat, $lng, $formatted_address, $_SESSION['user_id']])) {
+						$date = date('Y/m/d H:i:s');
+						if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
 							echo "<strong>Store successfully submitted. Redirecting ...</strong>";
 							echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/submission.php\"/>";
 						}

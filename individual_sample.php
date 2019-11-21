@@ -159,11 +159,15 @@
 		      <label class="rf-label rating">Rate it *</label>
               <select class="rf-input" id="ratings" name="rating" onblur="validateRating()">
                 <option value="" disabled selected hidden>Ratings</option>
-                <option value="5">✩✩✩✩✩</option>
-                <option value="4">✩✩✩✩</option>
-                <option value="3">✩✩✩</option>
-                <option value="2">✩✩</option>
-                <option value="1">✩</option>
+                <option value="5">5/5</option>
+                <option value="4.5">4.5/5</option>
+				<option value="4">4/5</option>
+				<option value="3.5">3.5/5</option>
+                <option value="3">3/5</option>
+                <option value="2.5">2.5/5</option>
+				<option value="2">2/5</option>
+				<option value="1.5">1.5/5</option>
+                <option value="1">1/5</option>
               </select>
 			  <label class="field-validation-error" id="error_msg_r">This field is required.</label>
             </div>

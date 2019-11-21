@@ -9,7 +9,7 @@ function validateFirstName() {
 	//this element is the error message for validating the first name
 	element = document.getElementById("error_msg_fn");
 	//only letters
-	var regex = /^[a-z]+$/ ; 
+	var regex = /^[a-z\ ]+$/ ; 
 	if (form.firstname.value != "") {
 		//check the input whether it satisfies the regular expression
 		if (regex.test(String(form.firstname.value).toLowerCase())) {
@@ -18,7 +18,7 @@ function validateFirstName() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters.";
+			element.innerHTML = "Field can only include letters and spaces.";
 		}
 	}
 	//show error message
@@ -32,7 +32,7 @@ function validateLastName() {
 	//this element is the error message for validating last name
 	element = document.getElementById("error_msg_ln");
 	//only letters
-	var regex = /^[a-z]+$/ ; 
+	var regex = /^[a-z\ ]+$/ ; 
 	if (form.lastname.value != "") {
 		//check the input whether it satisfies the regular expression
 		if (regex.test(String(form.lastname.value).toLowerCase())) {
@@ -41,7 +41,7 @@ function validateLastName() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters.";
+			element.innerHTML = "Field can only include letters and spaces.";
 		}
 	}
 	//show error message

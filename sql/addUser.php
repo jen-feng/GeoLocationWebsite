@@ -18,17 +18,20 @@
 				echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/signin.php\"/>";
 			} else {		
 				// Query we are using to check if the user is legit
-				$sql = "INSERT INTO users (email, passwordhash, firstname, lastname, user_id) VALUES (?, ?, ?, ?, ?)";
+				$sql = "INSERT INTO users (email, passwordhash, firstname, lastname, user_id, date_created) VALUES (?, ?, ?, ?, ?, ?)";
 				// Prepared statements: For when we don't have all the parameters so we store a template to be executed
 				// More information here: https://www.w3schools.com/php/php_mysql_prepared_statements.asp
 				$stmnt = $pdo->prepare($sql);
 				
 				//hashed the user password and store in sql
 				$hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
-				
+				$date = date('Y/m/d H:i:s');
 				try {
 					$uniqid = uniqid(md5(time().mt_rand(1, 1000000)));
-					if ($stmnt->execute([$_POST['email'], $hashed, $_POST['firstname'], $_POST['lastname'], $uniqid])) {
+					$firstname = ucwords(strtolower($_POST['firstname']));
+					$lastname = ucwords(strtolower($_POST['lastname']));
+					$email = strtolower($_POST['email']);
+					if ($stmnt->execute([$email, $hashed, $firstname, $lastname, $uniqid, $date])) {
 						//show success of registration
 						header("Location: ../registerSuccessPage.php");
 					}

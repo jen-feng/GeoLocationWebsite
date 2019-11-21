@@ -20,25 +20,40 @@
 		  <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
           <form action="sql/addStoreObject.php" method="POST" name="SubmissionForm" onsubmit="return validateStoreForm();">
             <div class="input-wrap">
-              <label class="rf-label">Store name</label>
+              <label class="rf-label">Store name*</label>
               <input type="text" class="rf-input" name="title" placeholder="Store name" onblur="validateTitle()">
               <label class="field-validation-error" id="error_msg_sn">This field is required.</label>
             </div>
             <div class="input-wrap">
-              <label class="rf-label">Description</label>
+              <label class="rf-label">Description*</label>
               <textarea class="rf-input description" name="description" placeholder="At least 10 words of description" onblur="validateDescription()"></textarea>
               <label class="field-validation-error" id="error_msg_d">This field is required.</label>
             </div>
-            <div class="input-wrap">
-              <label class="rf-label">Coordinates</label>
+			<div class="input-wrap">
+              <label class="rf-label">Coordinates*</label>
               <div class="coordinates-container">
-                <input type="number" step="any" class="rf-input latitude" id="latitude" name="latitude" placeholder="Latitude" onblur="validateLatitude()">
-                <input type="number" step="any" class="rf-input longitude" id="longitude" name="longitude" placeholder="Longitude" onblur="validateLongitude()">
+			    <input type="number" step="any" class="rf-input latitude" id="latitude" name="latitude" placeholder="Latitude" onblur="validateLatitude()">
+			    <input type="number" step="any" class="rf-input longitude" id="longitude" name="longitude" placeholder="Longitude" onblur="validateLongitude()">
               </div>
               <label class="field-validation-error" id="error_msg_ll">This field is required.</label>
               <div class="button-container">
                 <input type="button" id="location_button" name="locationbutton" onclick="getMyLocation()" value="Get my location">
               </div>
+            </div>
+			<div class="input-wrap">
+              <label class="rf-label">Phone number (optional)</label>
+              <input type="text" class="rf-input phone" name="phone" placeholder="123 456 7890" onblur="validatePhone()">
+              <label class="field-validation-error" id="error_msg_p"></label>
+            </div>
+			<div class="input-wrap">
+              <label class="rf-label">Email (optional)</label>
+              <input type="email" class="rf-input email" name="email" placeholder="example@example.com" onblur="validateEmail()">
+              <label class="field-validation-error" id="error_msg_email">Enter a valid email.</label>
+            </div>
+			<div class="input-wrap">
+              <label class="rf-label">Website (optional)</label>
+              <input type="text" class="rf-input site" name="site" placeholder="www.example.com" onblur="validateWebsite()">
+              <label class="field-validation-error" id="error_msg_w"></label>
             </div>
             <!---image upload-->
             <div class="input-wrap">

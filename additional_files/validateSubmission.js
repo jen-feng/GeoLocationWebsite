@@ -12,10 +12,10 @@ function validateReviewForm() {
 
 function validateTitle() {
 	var form = document.SubmissionForm;
-	//this element is the error message for validating the store name
+	//this element is the error message for validating the store name/title
 	element = document.getElementById("error_msg_sn");
 	//only letters
-	var regex = /^[a-z\ ]+$/ ; 
+	var regex = /^[a-z0-9\ ]+$/ ; 
 	if (form.title.value != "") {
 		//check the input whether it satisfies the regular expression
 		if (regex.test(String(form.title.value).toLowerCase())) {
@@ -24,7 +24,7 @@ function validateTitle() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters and spaces.";
+			element.innerHTML = "Field can only include letters, numbers and spaces.";
 		}
 	}
 	//show error message
@@ -129,6 +129,64 @@ function handleError(error) {
 	}
 	//show error message 
 	element.style.display = "block";
+}
+
+function validatePhone() {
+	var form = document.SubmissionForm;
+	element = document.getElementById("error_msg_p");
+	phone = form.phone.value;
+	//regulaer expression for canada phone
+	var regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+	if (phone == null || phone == "" || regex.test(String(phone))) {
+		form.phone.style.outline = "none";
+		element.style.display = "none";
+		return true;
+	} else {
+		form.phone.style.outline = "1px solid red";
+		element.style.display = "block";
+		element.innerHTML = "Enter a valid phone number.";
+		return false;
+	}
+}
+
+function validateEmail() {
+	var form = document.SubmissionForm;
+	//this element is the error message for validating email address
+	element = document.getElementById("error_msg_email");
+	//regular expression for email that doesn't include unicodes
+	var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	email = form.email.value
+	
+	if (email == "" || email == null || regex.test(String(email))) {
+		//check the input whether it satisfies the regular expression for email defined above
+		//hide error message
+		form.email.style.outline = "none";
+		element.style.display = "none";
+		return true;
+	}
+	//show error message
+	form.email.style.outline = "1px solid red";
+	element.style.display = "block";
+	return false;
+}
+
+function validateWebsite() {
+	var form = document.SubmissionForm;
+	element = document.getElementById("error_msg_w");
+	web = form.site.value;
+	//regular expression for a website with http/https or without
+	var regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+	if (web == null || web == "" || regex.test(String(web))) {
+		form.site.style.outline = "none";
+		element.style.display = "none";
+		return true;
+	} else {
+		form.site.style.outline = "1px solid red";
+		element.style.display = "block";
+		element.innerHTML = "Enter a valid website.";
+		return false;
+	}
 }
 
 function validateImageSize(image) {

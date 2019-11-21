@@ -99,7 +99,7 @@ textarea {
 }
 
 /*set the right input of the coordinates to the end making the input balance in the form*/
-.rf-input.latitude {
+.rf-input.longitude {
 	float: right;
 }
 
