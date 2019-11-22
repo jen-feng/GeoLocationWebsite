@@ -13,10 +13,10 @@
     <div class="body-content">
       <div class="container-box">
         <h1 class="title">Find A Pet Here</h1>
-        <form class="search-form" action="results_sample.php" name="search-form"> 
+        <form class="search-form" action="results_sample.php" name="search-form" method="POST"> 
           <div class="search-container">
             <div class="searchbar">
-              <input id = "search" type="search" name = "search" placeholder="What are you looking for?">
+              <input id = "search" type="search" name="search" placeholder="What are you looking for?">
             </div>  
             <div class="ratings-container">
               <select id="ratings">
@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="submit-button">
-            <input type="submit" value="search" class="button">
+            <input type="submit" value="search" name="submit" class="button">
           </div>
           <div class = "location">
             <!--explicitly specify the button type to prevent submitting the form-->
