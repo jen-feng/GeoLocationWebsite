@@ -8,27 +8,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../additional_files/searchResultsPage.css" >
+	<script  type="text/javascript" src="/additional_files/search.js"></script>
   </head>
   <body>
     <?php include 'header.php' ?>
     <div class="body-content">
-      <form class="container-box" action="results_sample.html" name="search-form" > 
+      <form class="container-box" action="results_sample.php" name="search-form"  method="POST" id="searchForm"> 
         <div class="search-container">
-          <div class="searchbar">
-            <input type="search" name="search" id="search" placeholder="What are you looking for?">
-          </div>  
-          <div class="ratings-container">
-            <select id="ratings">
-              <option value="" disabled selected hidden>Ratings</option>
-              <option value="5">✩✩✩✩✩</option>
-              <option value="4">✩✩✩✩</option>
-              <option value="3">✩✩✩</option>
-              <option value="2">✩✩</option>
-              <option value="1">✩</option>
-            </select>
-          </div>
+          <?php include "partialSearch.php"; ?>
           <div class="submit-button">
-            <input type="submit" value="search" class="button">
+            <input type="submit" value="search" name="submit" class="button">
           </div>
           <div class = "location">
             <!--explicitly specify the button type to prevent submitting the form-->
