@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<?php include "sql/getStoresResult.php" ?>
+<!DOCTYPE html>
 <html>
   <head>
     <title>
@@ -7,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../additional_files/searchResultsPage.css" >
-    <script  type="text/javascript" src="../additional_files/search.js"></script>
   </head>
   <body>
     <?php include 'header.php' ?>
@@ -40,16 +40,22 @@
       <div class="results-container">
         <div class="map-container">
           <div id="map"></div>
+          <script>
+            var locations = <?php echo $locations; ?>;
+            var lati = Number("<?php echo $lat; ?>");
+            var lngi = Number("<?php echo $lng; ?>");
+          </script>
           <script type="text/javascript" src="additional_files/results_map.js"></script>
           <div class="map-border">
             <p id="map_title">Results on Map</p>
           </div>
         </div>
         <div class="results-content">
-            <?php include "sql/getStoresResult.php" ?>
-          <!--an element for the table paging, hard coded for now-->
+          <table id="#store-table">
+            <?php echo $table; ?>
+          </table>
           <div class="page-container">
-            <p class="page">Page 1 of Page 1<p>
+            <p class="page">End<p>
           </div>
         </div>
       </div>

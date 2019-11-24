@@ -13,19 +13,21 @@
     <div class="body-content">
       <div class="container-box">
         <h1 class="title">Find A Pet Here</h1>
-        <form class="search-form" action="results_sample.php" name="search-form" method="POST"> 
+        <form class="search-form" action="results_sample.php" name="search-form" method="POST" id="searchForm"> 
           <div class="search-container">
             <div class="searchbar">
               <input id = "search" type="search" name="search" placeholder="What are you looking for?">
             </div>  
             <div class="ratings-container">
-              <select id="ratings">
-                <option value="" disabled selected hidden>Ratings</option>
-                <option value="5">✩✩✩✩✩</option>
-                <option value="4">✩✩✩✩</option>
-                <option value="3">✩✩✩</option>
-                <option value="2">✩✩</option>
-                <option value="1">✩</option>
+              <select id="ratings" name="rate" form="searchForm">
+                <option value="0.0" disabled selected hidden>Any rating</option>
+                <option value="0.0">Any rating</option>
+                <option value="4.5">4.5+⭐</option>
+                <option value="4.0">4+⭐</option>
+                <option value="3.5">3.5+⭐</option>
+                <option value="3.0">3+⭐</option>
+                <option value="2.5">2.5+⭐</option>
+                <option value="2.0">2+⭐</option>
               </select>
             </div>
           </div>
