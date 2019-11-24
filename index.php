@@ -13,21 +13,9 @@
     <div class="body-content">
       <div class="container-box">
         <h1 class="title">Find A Pet Here</h1>
-        <form class="search-form" action="results_sample.php" name="search-form" method="POST"> 
+        <form class="search-form" action="results_sample.php" name="search-form" method="POST" id="searchForm"> 
           <div class="search-container">
-            <div class="searchbar">
-              <input id = "search" type="search" name="search" placeholder="What are you looking for?">
-            </div>  
-            <div class="ratings-container">
-              <select id="ratings">
-                <option value="" disabled selected hidden>Ratings</option>
-                <option value="5">✩✩✩✩✩</option>
-                <option value="4">✩✩✩✩</option>
-                <option value="3">✩✩✩</option>
-                <option value="2">✩✩</option>
-                <option value="1">✩</option>
-              </select>
-            </div>
+            <?php include "partialSearch.php"; ?>
           </div>
           <div class="submit-button">
             <input type="submit" value="search" name="submit" class="button">

@@ -19,13 +19,13 @@
 				
 				$date = date('Y/m/d H:i:s');
 				//if insert successful, let the user know
-				$id=12;
+
 				if (isset($_SESSION['current_page'])) {	
 					$redirect = $_SESSION['current_page'];
 				} else {
 					$redirect = "http://localhost/search.php";
 				}
-				if ($stmnt->execute([$id, $_SESSION['user_id'], $_POST['title'], $_POST['description'], $_POST['rating'], $date])) {
+				if ($stmnt->execute([$_SESSION['store_id'], $_SESSION['user_id'], $_POST['title'], $_POST['description'], $_POST['rating'], $date])) {
 					echo "<strong>Review successfully submitted. Redirecting ...</strong>";
 					echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";
 				}

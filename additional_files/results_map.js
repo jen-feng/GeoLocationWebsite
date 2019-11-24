@@ -12,7 +12,9 @@ function initMap() {
 
 	//add markers
 	//locations is also from the previous script
-	createMarkers(locations);
+	if (locations != null) {
+		createMarkers(locations);
+	}
 
 }
 

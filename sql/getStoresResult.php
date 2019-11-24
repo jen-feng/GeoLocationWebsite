@@ -30,7 +30,7 @@
 		}
 	}
 	try {
-		$sql = "SELECT * FROM stores WHERE rating >= ? ORDER BY rating DESC";
+		$sql = "SELECT ID, storename, description, latitude, longitude, phone, rating FROM stores WHERE rating >= ? ORDER BY rating DESC";
 		$stmnt = $pdo->prepare($sql);
 		$stmnt->execute([$searchByRating]);
 		$results = $stmnt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@
 		//will return an array of tw value which the stores are the stores to show later and the other is the html table
 		$tables = createTable($results, $latLngKnown, $searchByRating);
 		
-		if (count($tables["stores"]) != 0) {
+		if (count($results) != 0) {
 			//encode for  later use in js script
 			$locations = json_encode($tables["stores"]);
 		} else {
@@ -75,12 +75,12 @@ function createTable($stores, $coordinate, $baseRating) {
 		'</tr>';
 	$table = "";
 	//radius distance for search from user location
-	$maxRadius = 2000000;
+	$maxRadius = 2000;
 	$num = 1;
 	$index = 0;
 
 	//an array to save the stores that will be showing later
-	$storeToShow = array();
+	$storesToShow = array();
 
 	//looping each store to create each row of the table
 	foreach ($stores as $store_row) {
@@ -112,9 +112,10 @@ function createTable($stores, $coordinate, $baseRating) {
 		}
 	}
 
-	//to return two values for the function
 	$result[0] = array();
+	//to return two values for the function
 	$result[0]["stores"] = $storesToShow;
+	
 	//check if it is empty to add empty result html message
 	if ($table == "") {
 		$result[0]["table"] = $first."<h2>No store found.</h2>";
