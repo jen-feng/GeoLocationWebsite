@@ -31,12 +31,12 @@
 				if (isset($_SESSION['current_page'])) {	
 					$redirect = $_SESSION['current_page'];
 				} else {
-					$redirect = "https://cs4ww3-jenbiya.club/search.php";
+					$redirect = "https://www.cs4ww3-jenbiya.club/search.php";
 				}
 				echo "Successfully signed in.";
 				echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";
 			} else {
-				$redirect = "https://cs4ww3-jenbiya.club/signin.php";
+				$redirect = "https://www.cs4ww3-jenbiya.club/signin.php";
 				echo "Either email or password is not correct. Please try again.";
 				echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";
 			}

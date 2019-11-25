@@ -23,7 +23,7 @@
 				if (isset($_SESSION['current_page'])) {	
 					$redirect = $_SESSION['current_page'];
 				} else {
-					$redirect = "https://cs4ww3-jenbiya.club/search.php";
+					$redirect = "https://www.cs4ww3-jenbiya.club/search.php";
 				}
 				if ($stmnt->execute([$_SESSION['store_id'], $_SESSION['user_id'], $_POST['title'], $_POST['description'], $_POST['rating'], $date])) {
 					echo "<strong>Review successfully submitted. Redirecting ...</strong>";

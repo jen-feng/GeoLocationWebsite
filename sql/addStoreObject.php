@@ -68,7 +68,7 @@ try {
 					$date = date('Y/m/d H:i:s');
 					if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
 						echo "<strong>Store successfully submitted. Redirecting ...</strong>";
-						echo "<meta http-equiv=\"refresh\" content=\"4;url=https://cs4ww3-jenbiya.club/submission.php\"/>";
+						echo "<meta http-equiv=\"refresh\" content=\"4;url=https://www.cs4ww3-jenbiya.club/submission.php\"/>";
 					}
 				}
 			} catch (PDOException $e) {
@@ -81,7 +81,7 @@ try {
 		
     } else {
         // This path is dependent on where the root of your documents is located.
-        header("Location: https://cs4ww3-jenbiya.club/registration.php");
+        header("Location: https://www.cs4ww3-jenbiya.club/registration.php");
     }
 } catch(PDOException $e) {
 	echo $e->getMessage();

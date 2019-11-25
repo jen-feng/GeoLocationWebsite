@@ -15,7 +15,7 @@
 			
 			if ($stmnt->fetchColumn() != 0) {
 				echo "Your email address is linked to an existing account. Redirecting to Sign in Page ...";
-				echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/signin.php\"/>";
+				echo "<meta http-equiv=\"refresh\" content=\"4;url=https://www.cs4ww3-jenbiya.club/signin.php\"/>";
 			} else {		
 				// Query we are using to check if the user is legit
 				$sql = "INSERT INTO users (email, passwordhash, firstname, lastname, user_id, date_created) VALUES (?, ?, ?, ?, ?, ?)";
@@ -33,7 +33,7 @@
 					$email = strtolower($_POST['email']);
 					if ($stmnt->execute([$email, $hashed, $firstname, $lastname, $uniqid, $date])) {
 						//show success of registration
-						header("Location: https://cs4ww3-jenbiya.club/registerSuccessPage.php");
+						header("Location: https://www.cs4ww3-jenbiya.club/registerSuccessPage.php");
 					}
 				} catch (PDOException $e) {
 					echo $e->getMessage();
@@ -46,6 +46,6 @@
     } else {
         // This path is dependent on where the root of your documents is located.
         // For this it is made to point back to the register file if registering has failed.
-        header("Location: https://cs4ww3-jenbiya.club/registration.php");
+        header("Location: https://www.cs4ww3-jenbiya.club/registration.php");
     }
 ?>
