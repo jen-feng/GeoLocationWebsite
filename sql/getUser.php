@@ -36,7 +36,7 @@
 				echo "Successfully signed in.";
 				echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";
 			} else {
-				$redirect = "http://localhost/signin.php";
+				$redirect = "https://cs4ww3-jenbiya.club/signin.php";
 				echo "Either email or password is not correct. Please try again.";
 				echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";
 			}
