@@ -3,10 +3,11 @@
 ?>
 <?php include "../inc/dbinfo.inc"; ?>
 <?php include "../inc/getKey.inc"; ?>
-<?php 
+<?php
+try {
     // using php data objects we set the login parameters for the database. 
     // More information here: https://www.php.net/manual/en/intro.pdo.php
-    $pdo = new PDO('mysql:host=localhost;dbname=test', DB_USERNAME, DB_PASSWORD);
+	$pdo = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_DATABASE, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -41,7 +42,7 @@
  				if ($stmnt->fetchColumn() != 0) {
 					//if exist, return back to the form
 					echo "The store you submitted is already in the data.";
-					echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/submission.php\"/>";
+					echo "<meta http-equiv=\"refresh\" content=\"4;url=https://cs4ww3-jenbiya.club/submission.php\"/>";
 				} else {
 					$data = $_POST['phone'];
 					//reformat phone if not null
@@ -63,15 +64,11 @@
 					// Prepared statements: For when we don't have all the parameters so we store a template to be executed
 					$stmnt = $pdo->prepare($sql);
 				
-					try {
-						//if insert successful, let the user know
-						$date = date('Y/m/d H:i:s');
-						if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
-							echo "<strong>Store successfully submitted. Redirecting ...</strong>";
-							echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/submission.php\"/>";
-						}
-					} catch (PDOException $e) {
-						echo $e->getMessage();
+					//if insert successful, let the user know
+					$date = date('Y/m/d H:i:s');
+					if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
+						echo "<strong>Store successfully submitted. Redirecting ...</strong>";
+						echo "<meta http-equiv=\"refresh\" content=\"4;url=https://cs4ww3-jenbiya.club/submission.php\"/>";
 					}
 				}
 			} catch (PDOException $e) {
@@ -84,6 +81,9 @@
 		
     } else {
         // This path is dependent on where the root of your documents is located.
-        header("Location: ../registration.php");
+        header("Location: https://cs4ww3-jenbiya.club/registration.php");
     }
+} catch(PDOException $e) {
+	echo $e->getMessage();
+}
 ?>

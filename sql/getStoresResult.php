@@ -1,6 +1,7 @@
 <?php include "inc/dbinfo.inc"; ?>
 <?php
-	$pdo = new PDO('mysql:host=localhost;dbname=test', DB_USERNAME, DB_PASSWORD);
+try {
+	$pdo = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_DATABASE, DB_USERNAME, DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -29,28 +30,26 @@
 			}
 		}
 	}
-	try {
-		$sql = "SELECT ID, storename, description, latitude, longitude, phone, rating FROM stores WHERE rating >= ? ORDER BY rating DESC";
-		$stmnt = $pdo->prepare($sql);
-		$stmnt->execute([$searchByRating]);
-		$results = $stmnt->fetchAll(PDO::FETCH_ASSOC);
-		//funtion to create html table
-		//will return an array of tw value which the stores are the stores to show later and the other is the html table
-		$tables = createTable($results, $latLngKnown, $searchByRating);
-		
-		if (count($results) != 0) {
-			//encode for  later use in js script
-			$locations = json_encode($tables["stores"]);
-		} else {
-			$locations = "{}";
-		}
-
-		$table = $tables["table"];
-
-	} catch(PDOException $e) {
-		echo "ERROR: ".$e->getMessage();
+	$sql = "SELECT ID, storename, description, latitude, longitude, phone, rating FROM stores WHERE rating >= ? ORDER BY rating DESC";
+	$stmnt = $pdo->prepare($sql);
+	$stmnt->execute([$searchByRating]);
+	$results = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+	//funtion to create html table
+	//will return an array of tw value which the stores are the stores to show later and the other is the html table
+	$tables = createTable($results, $latLngKnown, $searchByRating);
+	
+	if (count($results) != 0) {
+		//encode for  later use in js script
+		$locations = json_encode($tables["stores"]);
+	} else {
+		$locations = "{}";
 	}
 
+	$table = $tables["table"];
+
+} catch(PDOException $e) {
+		echo "ERROR: ".$e->getMessage();
+}
 //calculate distance from user origin to destination using Haversine formula
 function getDistanceInM($latO, $lngO, $latD, $lngD) {
 	//earth radius in meters

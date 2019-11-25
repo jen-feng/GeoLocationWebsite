@@ -5,7 +5,7 @@
 <?php 
     // using php data objects we set the login parameters for the database. 
     // More information here: https://www.php.net/manual/en/intro.pdo.php
-    $pdo = new PDO('mysql:host=localhost;dbname=test', DB_USERNAME, DB_PASSWORD);
+    $pdo = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_DATABASE, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -31,7 +31,7 @@
 				if (isset($_SESSION['current_page'])) {	
 					$redirect = $_SESSION['current_page'];
 				} else {
-					$redirect = "http://localhost/search.php";
+					$redirect = "https://cs4ww3-jenbiya.club/search.php";
 				}
 				echo "Successfully signed in.";
 				echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";

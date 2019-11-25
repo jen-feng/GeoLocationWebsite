@@ -2,7 +2,7 @@
 <?php 
     // using php data objects we set the login parameters for the database. 
     // More information here: https://www.php.net/manual/en/intro.pdo.php
-    $pdo = new PDO('mysql:host=localhost;dbname=test', DB_USERNAME, DB_PASSWORD);
+    $pdo = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_DATABASE, DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -33,7 +33,7 @@
 					$email = strtolower($_POST['email']);
 					if ($stmnt->execute([$email, $hashed, $firstname, $lastname, $uniqid, $date])) {
 						//show success of registration
-						header("Location: ../registerSuccessPage.php");
+						header("Location: https://cs4ww3-jenbiya.club/registerSuccessPage.php");
 					}
 				} catch (PDOException $e) {
 					echo $e->getMessage();
@@ -46,6 +46,6 @@
     } else {
         // This path is dependent on where the root of your documents is located.
         // For this it is made to point back to the register file if registering has failed.
-        header("Location: ../registration.php");
+        header("Location: https://cs4ww3-jenbiya.club/registration.php");
     }
 ?>
