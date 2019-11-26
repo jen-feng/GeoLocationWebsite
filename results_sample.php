@@ -53,3 +53,10 @@
     <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyhVAtMlWygSGml79zYG-WnGlLxU9B3ho&libraries=places&callback=initMap"></script>
   </body>
 </html>
+<script>
+	//script to remember broswer history to prevent resubmission of the form when 
+	//user click "go back" or refresh
+	if ( window.history.replaceState ) {
+		window.history.replaceState( null, null, window.location.href );
+	}
+</script>
