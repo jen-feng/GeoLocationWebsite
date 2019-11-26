@@ -94,10 +94,10 @@ function createTable($stores, $coordinate, $baseRating) {
 						<!--div class to includes store image , name and other info-->
 						<div class="store-container">
 							<div class="store-image">
-								<a href="individual_sample.html"><img src="additional_files/store.png" alt="Store Image"></a>
+								<a href="individual_sample.php?store_id='.$store_row['ID'].'"><img src="additional_files/store.png" alt="Store Image"></a>
 							</div>
 							<div class="store-name">
-								<h1><a href="individual_sample.html">'.$num.". ".$store_row['storename'].'</a></h1>
+								<h1><a href="individual_sample.php?store_id='.$store_row['ID'].'">'.$num.". ".$store_row['storename'].'</a></h1>
 								<p>'.$store_row['description'].'<span id="dots">...</span><span class="more">vel erat posuere eleifend. Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. Nam rutrum massa quis elit consectetur dictum.</span></p>
 								<button onclick="">Read more</button>
 							</div>
