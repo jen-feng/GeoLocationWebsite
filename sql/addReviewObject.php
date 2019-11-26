@@ -16,18 +16,25 @@
 				$sql = "INSERT INTO reviews (store_id, user_id, title, reviewtext, rating, date) VALUES (?, ?, ?, ?, ?, ?)";
 				// Prepared statements: For when we don't have all the parameters so we store a template to be executed
 				$stmnt = $pdo->prepare($sql);
-				
+				//date of creation of the query
 				$date = date('Y/m/d H:i:s');
-				//if insert successful, let the user know
-
+				//set the redirect url if user was previously into some place on the site
 				if (isset($_SESSION['current_page'])) {	
 					$redirect = $_SESSION['current_page'];
 				} else {
+					//set redirect to search page if no previously working page
 					$redirect = "https://www.cs4ww3-jenbiya.club/search.php";
 				}
+				//check if execution successful
 				if ($stmnt->execute([$_SESSION['store_id'], $_SESSION['user_id'], $_POST['title'], $_POST['description'], $_POST['rating'], $date])) {
-					echo "<strong>Review successfully submitted. Redirecting ...</strong>";
-					echo "<meta http-equiv=\"refresh\" content=\"2;url=".$redirect."\"/>";
+					//json output for appending to the review page using ajax 
+					$output = json_encode(array(
+						'title' => $_POST['title'],
+						'username' => $_SESSION['username'],
+						'description' => $_POST['description'],
+						'rating' => $_POST['rating']
+					));
+					echo $output;
 				}
 		} catch (PDOException $e) {
 			echo $e->getMessage();

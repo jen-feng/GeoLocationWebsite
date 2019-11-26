@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../additional_files/showReviewForm.js"></script>
     <script type="text/javascript" src="../additional_files/validateSubmission.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<title>
       Object Page
     </title>
@@ -19,6 +20,8 @@
         <div class="map-container">
           <div id="map"></div>
 		  <script >
+			// $store_json from the php file included at the start of this document
+			// define this var to be used in the next script
             var tmp = <?php echo $store_json; ?>;
 			var place = tmp[0];
 		  </script>
@@ -55,7 +58,16 @@
       </div>
       <div class="results-content">
         <table>
-		  <?php echo $table; ?>
+		  <thread>
+		  <tr class="table-row">
+			<th class="table-row store">Reviews</th>
+			<th  class="table-row ratings">Rating</th>
+			<th class="table-row contact">User</th>
+			</tr>
+		  </trhead>
+		  <tbody id="table_data">
+		    <?php echo $table; ?>
+          </tbody>
         </table>
         <!--an element for the table paging, hard coded for now-->
         <div class="page-container">
@@ -63,8 +75,10 @@
         </div>
       </div>
     </div>
+	<!-- check if user is logged in, show sign in button when it is not -->
 	<?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK"): ?>
 	  <?php include "inc/control.inc"; ?>
+	  <!-- show user who is logged in to write a review button-->
 	  <button id="reviewButton" onclick="showReview();">Write a Review</button>
 	<?php else: ?>
 	  <form action="signin.php"><input type="submit" value="Sign in to Write a Review" id="signInButton">
@@ -77,7 +91,7 @@
 		  <h4>Share your experience</h4>
 		  <span class="review-des">Tell customers what you experienced by rating and reviewing the store.</span>
 		</div>
-	    <form action="sql/addReviewObject.php" method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();">
+	    <form method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();">
 		  <div class="auth-form">
 		    <div class="ratings-container">
 		      <label class="rf-label rating">Rate it *</label>
@@ -111,7 +125,7 @@
               <label class="field-validation-error" id="error_msg_img">Your image can not exceed 4MB.</label>
             </div>
             <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
-			<input type="submit" name="register" value="Submit">
+			<input type="submit" name="add" id="add" value="Submit">
 	      </div>
 		</form>
 	  </div>
@@ -120,3 +134,5 @@
     <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyhVAtMlWygSGml79zYG-WnGlLxU9B3ho&libraries=places&callback=initMap"></script>
    </body>
 </html>
+<!-- js script to use ajax to append the new review-->
+<script type="text/javascript" src="../additional_files/addReview.js"></script>

@@ -8,15 +8,18 @@ try {
 	$sql = "SELECT * FROM reviews WHERE store_id = ?";
 	$sql2 = "SELECT * FROM stores WHERE ID = ?";
 	
+	//check if store id is passed on
 	if (isset($_GET['store_id'])) {
 		$id = $_GET['store_id'];
 		$_SESSION['store_id'] = $id;
 		
+		//query to get all the reviews associated with the corresponding store id
 		$stmnt1 = $pdo->prepare($sql);
 		$stmnt1->execute([$id]);
 		$results = $stmnt1->fetchAll(PDO::FETCH_ASSOC);
 		$table = createTable($results);
 
+		//query to get all the info for the associate store 
 		$stmnt2 = $pdo->prepare($sql2);
 		$stmnt2->execute([$id]);
 		$row = $stmnt2->fetchAll(PDO::FETCH_ASSOC);
@@ -27,15 +30,11 @@ try {
 	echo "ERROR".$e;
 }
 
-function createTable($allReviews) {
-	//first row
-	$first = '<tr class="table-row">
-			<th class="table-row store">Reviews</th>
-			<th  class="table-row ratings">Rating</th>
-			<th class="table-row contact">User</th>
-			</tr>';		
+//make html code of creating a table of reviews
+function createTable($allReviews) {		
 	$table = "";
 	
+	//append each review object
 	foreach($allReviews as $review) {
 		$table = $table.
 		'<tr>
@@ -56,10 +55,11 @@ function createTable($allReviews) {
 		</tr>';
 	}
 	
+	//html code for empty table
 	if ($table == "") {
-		return $first.'<h5>No review found for this store</h5>';
+		return '<div id="empty_msg"><h5>No review found for this store</h5></div>';
 	}
-	return $first.$table;
+	return $table;
 }
 
 ?>
