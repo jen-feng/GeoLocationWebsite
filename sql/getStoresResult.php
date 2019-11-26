@@ -8,6 +8,7 @@
 	if (isset($_POST['rate'])) {
 		$searchByRating = $_POST['rate'];
 	} else {
+		//set to te lowest so all ratings can be retrieved (rating minimum 1)
 		$searchByRating = 0.0;
 	}
 
@@ -19,8 +20,8 @@
 	//check search input
 	if (isset($_POST['search'])) {
 		$coordinate = explode("," , $_POST['search']);
-		//take out space in string
 		if (count($coordinate) == 2) {
+			//take out space in string
 			$lat = trim($coordinate[0]);
 			$lng = trim($coordinate[1]);
 			//check if they are valid numbers for the coordinate input;
@@ -30,6 +31,7 @@
 		}
 	}
 	try {
+		//query to get all stores from database
 		$sql = "SELECT ID, storename, description, latitude, longitude, phone, rating FROM stores WHERE rating >= ? ORDER BY rating DESC";
 		$stmnt = $pdo->prepare($sql);
 		$stmnt->execute([$searchByRating]);
@@ -67,7 +69,7 @@ function getDistanceInM($latO, $lngO, $latD, $lngD) {
 }
 
 function createTable($stores, $coordinate, $baseRating) {
-	//first row
+	//first row of the table
 	$first = '<tr class="table-row">'.
 		'<th class="table-row store">Store</th>'.
 		'<th class="table-row contact">Contact</th>'.
@@ -76,9 +78,10 @@ function createTable($stores, $coordinate, $baseRating) {
 	$table = "";
 	//radius distance for search from user location
 	$maxRadius = 2000;
+	//number to show on the store title
 	$num = 1;
+	//helper index for the below array
 	$index = 0;
-
 	//an array to save the stores that will be showing later
 	$storesToShow = array();
 
@@ -103,7 +106,8 @@ function createTable($stores, $coordinate, $baseRating) {
 					<td><p>'.$store_row['phone'].'</p></td>
 					<td>'.$store_row['rating'].'</td>
 				</tr>';
-
+				
+				//create a new array and add the store info 
 				$storesToShow[$index] = array();
 				$storesToShow[$index] = $store_row;
 
@@ -120,6 +124,7 @@ function createTable($stores, $coordinate, $baseRating) {
 	if ($table == "") {
 		$result[0]["table"] = $first."<h2>No store found.</h2>";
 	} else {
+		//add the created table to the first row if not empty
 		$result[0]["table"] = $first.$table;
 	}
 	return $result[0];
