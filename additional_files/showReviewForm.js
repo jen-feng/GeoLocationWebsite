@@ -13,5 +13,7 @@ function closeReview() {
 //hide empty review
 function hideEmptyMsg() {
 	element = document.getElementById("empty_msg");
-	element.style.display= "none";
+	if (element) {
+		element.style.display= "none";
+	}
 }

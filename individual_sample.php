@@ -91,7 +91,7 @@
 		  <h4>Share your experience</h4>
 		  <span class="review-des">Tell customers what you experienced by rating and reviewing the store.</span>
 		</div>
-	    <form method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();">
+	    <form method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();" enctype="multipart/form-data">
 		  <div class="auth-form">
 		    <div class="ratings-container">
 		      <label class="rf-label rating">Rate it *</label>
@@ -121,7 +121,7 @@
             </div>
             <div class="input-wrap">
               <label class="rf-label">Upload image (optional)</label>
-              <input accept="image/*" type="file" class="rf-input image" name="imageupload" onchange="return validateImageSize(this)">
+              <input accept="image/*" type="file" class="rf-input image" name="imageupload" id="imageupload" onchange="return validateImageSize(this)">
               <label class="field-validation-error" id="error_msg_img">Your image can not exceed 4MB.</label>
             </div>
             <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
