@@ -91,7 +91,7 @@
 		  <h4>Share your experience</h4>
 		  <span class="review-des">Tell customers what you experienced by rating and reviewing the store.</span>
 		</div>
-	    <form method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();">
+	    <form method="POST" name="SubmissionForm" id="reviewForm" onsubmit="return validateReviewForm();" enctype="multipart/form-data">
 		  <div class="auth-form">
 		    <div class="ratings-container">
 		      <label class="rf-label rating">Rate it *</label>

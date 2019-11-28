@@ -1,6 +1,7 @@
 <?php
 	session_start();
 ?>
+<?php include "../../.inc/inc.php"; ?>
 <?php include "../inc/dbinfo.inc"; ?>
 <?php include "../inc/getKey.inc"; ?>
 <?php
@@ -67,6 +68,35 @@ try {
 					//if insert successful, let the user know
 					$date = date('Y/m/d H:i:s');
 					if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
+							//insert the store image if there is one
+							$id = $pdo->lastInsertId();
+							if(isset($_FILES['imageupload'])){
+								//get the file properties
+								//store file name using store id
+								$file_name = "store_".$id;
+								$temp_file_location = $_FILES['imageupload']['tmp_name'];
+								
+								//script for aws composer
+								require '../vendor/autoload.php';
+								
+								//open s3 bucket client and set credentials
+								$s3 = new Aws\S3\S3Client([
+									'region'  => AWS_DEFAULT_REGION,
+									'version' => 'latest',
+									'credentials' => [
+									'key'    => AWS_ACCESS_KEY_ID,
+									'secret' => AWS_SECRET_ACCESS_KEY,
+									]
+								]);
+
+								//upload the file
+								$result = $s3->putObject([
+									'Bucket' => '4ww3reviews',
+									'Key'    => $file_name,
+									'SourceFile' => $temp_file_location	
+								]);
+							}
+							//let the user know meassage successful
 						echo "<strong>Store successfully submitted. Redirecting ...</strong>";
 						echo "<meta http-equiv=\"refresh\" content=\"4;url=https://www.cs4ww3-jenbiya.club/submission.php\"/>";
 					}
