@@ -85,7 +85,7 @@
 	  <?php include "inc/control.inc"; ?>
 	<?php endif; ?>
 	<div id="modalView" class="modal-box">
-	  <div class="modal-content">
+	  <div class="modal-content form">
 	    <button class="close" onclick="closeReview();">close &times;</button>
 	    <div class="title-form">
 		  <h4>Share your experience</h4>
