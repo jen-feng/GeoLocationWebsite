@@ -1,4 +1,5 @@
 <?php include "inc/dbinfo.inc"; ?>
+<?php include "../../.inc/inc.php"; ?>
 <?php
 
 try {
@@ -33,9 +34,33 @@ try {
 //make html code of creating a table of reviews
 function createTable($allReviews) {		
 	$table = "";
-	
+	require 'vendor/autoload.php';
+	//setting up for s3 client to retrieve object
+	$s3 = new Aws\S3\S3Client([
+				'region'  => AWS_DEFAULT_REGION,
+				'version' => 'latest',
+				'credentials' => [
+					'key'    => AWS_ACCESS_KEY_ID,
+					'secret' => AWS_SECRET_ACCESS_KEY,
+				]
+			]);
 	//append each review object
 	foreach($allReviews as $review) {
+		//get the object from s3 bucket
+		$response = $s3->doesObjectExist('4ww3reviews', 'review_'.$review["ID"].'.jpg');		
+		//check if image exist in the s3 bucket before appending to the table
+		$image = "";
+		if ($response) {
+			$url = $s3->getObjectUrl('4ww3reviews', 'review_'.$review["ID"].'.jpg');
+			$image =	'<div class="image-container" onclick="showImage('.$review["ID"].');">
+								<img class="review-image" src='.$url.' alt="review image">
+							</div>
+							<!-- The modal to show the image -->
+							<div id="imageModal'.$review["ID"].'" class="modal" >
+								<button class="close" onclick="hideImage('.$review["ID"].');">close &times;</button>
+								<img class="modal-content image" src='.$url.'>
+							</div>';
+		}
 		$table = $table.
 		'<tr>
 			<td>
@@ -45,14 +70,16 @@ function createTable($allReviews) {
 					</div>
 					<div class="user-comments">
 						<h2>'.$review['title'].'</h2>
-						<p>'.$review['reviewtext'].'<span id="dots">...</span><span class="more">vel erat posuere eleifend. Suspendisse aliquet lobortis dolor, ac finibus ipsum sagittis eu. Mauris dapibus diam consectetur, imperdiet lacus vel, faucibus enim. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. Nam rutrum massa quis elit consectetur dictum.</span></p>
+						<p>'.$review['reviewtext'].'<span id="dots">...</span><span class="more">vel erat posuere eleifend. Suspendisse aliq</span></p>
 						<button onclick="">Read more</button>
+						'.$image.'
 					</div>
 				</div>
 			</td>
 			<td><p>'.$review['rating'].'</p></td>
 			<td>'.$review['user_id'].'</td>
 		</tr>';
+		$url = '';
 	}
 	
 	//html code for empty table

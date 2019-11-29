@@ -4,19 +4,35 @@ $(document).ready(function() {
 		event.preventDefault();
 		$.ajax({
 			//directory of the script to add review
-			url:"sql/addReviewObject.php",
-			method:"POST",
-			data:$(this).serialize(),
-			dataType:"json",
+			url: "sql/addReviewObject.php",
+			method: "POST",
+			data: new FormData(this),
+			dataType: "json",
+			contentType: false,
+			cache: false,
+			processData: false,
 			//disable the submit button to prevent repeating submittion
-			beforeSend:function() {
+			beforeSend: function() {
 				$('#add').attr('disabled', 'disabled');
 			},
 			//enable the submit button when successfully submit
-			success:function(data) {
+			success: function(data) {
 				$('#add').attr('disabled', false);
 				//check if data not null then add html
+				var imageHTML = '';
 				if(data.title) {
+					//check if image url not null then create the element for image
+					if (data.image != '') {
+						imageHTML = '<div class="image-container" onclick="showImage(' + data.id + ');">' +
+									'<img class="review-image" src="' + data.image + '" alt="review image">' +
+								'</div>' +
+								'<!-- The modal to show the image -->' +
+								'<div id="imageModal' + data.id + '" class="modal" >' +
+									'<button class="close" onclick="hideImage(' + data.id + ');">close &times;</button>' +
+									'<img class="modal-content image" src="' + data.image + '">' +
+								'</div>';
+					}
+
 					var html = '<tr>' +
 										'<td>' +
 											'<div class="user-container">' +
@@ -25,8 +41,9 @@ $(document).ready(function() {
 												'</div>' +
 												'<div class="user-comments">' +
 													'<h2>'+ data.title + '</h2>' +
-													'<p>' + data.description + '<span id="dots">...</span><span class="more">vel erat posuere eleifend. Curabitur porta mi vel velit mattis, ut ultricies lectus scelerisque. Praesent tempus lectus quis neque scelerisque, id ultrices ipsum dignissim. Proin pretium, tellus sed viverra porta, ex augue viverra mi, sed feugiat neque odio consequat magna. Fusce eget egestas nisi. Nam rutrum massa quis elit consectetur dictum.</span></p>' +
+													'<p>' + data.description + '<span id="dots">...</span><span class="more">vel erat posuere eleifend. Curabituum.</span></p>' +
 													'<button onclick="">Read more</button>' +
+													imageHTML +
 												'</div>' +
 											'</div>' +
 										'</td>' +
@@ -42,6 +59,9 @@ $(document).ready(function() {
 					//hide empty review message if any
 					hideEmptyMsg();
 				}
+			},
+			error: function( ) {
+				alert( 'something went wrong');
 			}
 		})
 	});
