@@ -6,7 +6,7 @@ try {
 	$pdo = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_DATABASE, DB_USERNAME, DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM reviews WHERE store_id = ?";
+	$sql = "SELECT * FROM reviews WHERE store_id = ? ORDER BY date DESC";
 	$sql2 = "SELECT * FROM stores WHERE ID = ?";
 	
 	//check if store id is passed on
