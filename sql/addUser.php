@@ -24,7 +24,7 @@
 				$stmnt = $pdo->prepare($sql);
 				
 				//hashed the user password and store in sql
-				$hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
+				$hashed = hashAndSalt($_POST['password']);
 				$date = date('Y/m/d H:i:s');
 				try {
 					$uniqid = uniqid(md5(time().mt_rand(1, 1000000)));
@@ -49,4 +49,15 @@
         header("Location: https://www.cs4ww3-jenbiya.club/registration.php");
     }
 	$_POST = array();
+	function hashAndSalt($psw) {
+		//generat a random salt
+		$charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
+		$len = 23;
+		$salt = "";
+		for ($i = 0; $i < $len; $i++) {
+			$salt = $salt.$charset[mt_rand(0, strlen($charset) - 1)];
+		}
+		//hash the password with the generated salt 
+		return password_hash($psw, PASSWORD_DEFAULT, array("cost" => 7, "salt" => $salt));
+	}
 ?>
