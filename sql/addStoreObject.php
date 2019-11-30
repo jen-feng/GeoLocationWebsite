@@ -109,9 +109,6 @@ try {
 		}
 		$_POST = array();
 		
-    } else {
-        // This path is dependent on where the root of your documents is located.
-        header("Location: https://www.cs4ww3-jenbiya.club/registration.php");
     }
 } catch(PDOException $e) {
 	echo $e->getMessage();
