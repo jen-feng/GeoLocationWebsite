@@ -46,11 +46,9 @@ function createTable($allReviews) {
 			]);
 	//append each review object
 	foreach($allReviews as $review) {
-		//get the object from s3 bucket
-		$response = $s3->doesObjectExist('4ww3reviews', 'review_'.$review["ID"].'.jpg');		
 		//check if image exist in the s3 bucket before appending to the table
 		$image = "";
-		if ($response) {
+		if ($review["imageupload"]) {
 			$url = $s3->getObjectUrl('4ww3reviews', 'review_'.$review["ID"].'.jpg');
 			$image =	'<div class="image-container" onclick="showImage('.$review["ID"].');">
 								<img class="review-image" src='.$url.' alt="review image">
