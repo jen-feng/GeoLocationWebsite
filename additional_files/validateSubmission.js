@@ -37,9 +37,6 @@ function validateDescription() {
 	var form = document.SubmissionForm;
 	//this element is the error message for validating the description
 	element = document.getElementById("error_msg_d");
-	if (form.description.value == null || form.description.value == '') {
-		return false;
-	}
 	count = form.description.value.split(' ');
 	//must be at least 10 words separated by spaces
 	if (count.length >= 10) {
