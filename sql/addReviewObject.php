@@ -86,5 +86,6 @@
 			//show error if response status not OK
 			echo "<strong>ERROR:something happened.</strong>";
 	}
-		
+	$_POST = array();
+	$_FILES = array();
 ?>
