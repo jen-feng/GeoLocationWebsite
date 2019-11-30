@@ -61,6 +61,7 @@ $(document).ready(function() {
 				}
 			},
 			error: function( ) {
+				$('#add').attr('disabled', false);
 				alert( 'something went wrong');
 			}
 		})
