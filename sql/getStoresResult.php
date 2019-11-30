@@ -52,6 +52,7 @@
 	} catch(PDOException $e) {
 		echo "ERROR: ".$e->getMessage();
 	}
+	$_POST = array();
 
 //calculate distance from user origin to destination using Haversine formula
 function getDistanceInM($latO, $lngO, $latD, $lngD) {

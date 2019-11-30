@@ -48,4 +48,5 @@
         // For this it is made to point back to the register file if registering has failed.
         header("Location: ../registration.php");
     }
+	$_POST = array();
 ?>

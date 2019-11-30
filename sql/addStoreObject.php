@@ -10,14 +10,13 @@
     $pdo = new PDO('mysql:host=localhost;dbname=test', DB_USERNAME, DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-	//get the latitude and longitude from the user input
-	$lng = $_POST['longitude'];
-	$lat = $_POST['latitude'];
 	
 	//check again the input is not empty
-    if (isset($_POST['title']) && isset($_POST['description']) && isset($lng) && isset($lat)){
+    if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['longitude']) && isset($_POST['latitude']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['longitude']) && !empty($_POST['latitude'])) {
 
+		//get the latitude and longitude from the user input
+		$lng = $_POST['longitude'];
+		$lat = $_POST['latitude'];
 		//url to get the response from google map api
 		$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lng."&key=".SECRET_KEY."&sensor=true";
 		// get the json response
@@ -70,7 +69,7 @@
 						if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
 							//insert the store image if ther is one
 							$id = $pdo->lastInsertId();
-							if(isset($_FILES['imageupload'])){
+							if(isset($_FILES['imageupload']) && $_FILES['imageupload']['tmp_name']){
 								//get the file properties
 								//store file name using store id
 								$file_name = "store_".$id;
@@ -111,9 +110,6 @@
 			//show error if response status not OK
 			echo "<strong>ERROR:{$resp['status']}</strong>";
 		}
-		
-    } else {
-        // This path is dependent on where the root of your documents is located.
-        header("Location: ../registration.php");
+		$_POST = array();
     }
 ?>

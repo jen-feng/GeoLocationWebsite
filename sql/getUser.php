@@ -11,7 +11,7 @@
 
 	$redirect = NULL;
 	
-    if (isset($_POST['email']) && isset($_POST['password'])){
+    if (isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])){
 		
 		$sql = "SELECT * FROM users WHERE email = ?";
 		$stmnt = $pdo->prepare($sql);
@@ -45,4 +45,5 @@
 			echo $e->getMessage();
 		}
     }
+	$_POST = array();
 ?>

@@ -16,7 +16,7 @@
       <div class="container-box">
         <div class="auth-form">
           <p class="title-form">Sign In</p>
-          <form action="sql/getUser.php" method="POST" name="RegistrationForm">
+          <form action="sql/getUser.php" method="POST" name="RegistrationForm" onsubmit="return validateAuth();">
             <div class="input-wrap">
               <label class="field-validation-error" id="error_msg_email">Please enter your email address.</label>
               <input type="email" class="rf-input email-input" name="email" id="email" placeholder="example@example.com" onblur="validateEmail()">
