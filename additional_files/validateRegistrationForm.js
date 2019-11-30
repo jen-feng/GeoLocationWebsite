@@ -4,6 +4,13 @@ function validateForm() {
 	return x;
 }
 
+//validate sign in input
+function validateAuth() {
+	var x = false;
+	x = validateEmail() && validatePassword();
+	return x;
+}
+
 function validateFirstName() {
 	var form = document.RegistrationForm;
 	//this element is the error message for validating the first name
