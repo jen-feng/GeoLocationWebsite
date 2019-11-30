@@ -12,13 +12,12 @@ try {
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	//get the latitude and longitude from the user input
-	$lng = $_POST['longitude'];
-	$lat = $_POST['latitude'];
-	
 	//check again the input is not empty
-    if (isset($_POST['title']) && isset($_POST['description']) && isset($lng) && isset($lat)){
-
+    if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['longitude']) && isset($_POST['latitude']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['longitude']) && !empty($_POST['latitude'])) {
+		
+		//get the latitude and longitude from the user input
+		$lng = $_POST['longitude'];
+		$lat = $_POST['latitude'];
 		//url to get the response from google map api
 		$url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lng."&key=".SECRET_KEY."&sensor=true";
 		// get the json response

@@ -11,7 +11,7 @@
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	//check again the input is not empty
-    if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['rating'])){
+    if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['rating']) && !empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['rating'])) {
 		try {
 			//query for inserting to database if store does not exist
 				$sql = "INSERT INTO reviews (store_id, user_id, title, reviewtext, rating, imageupload, date) VALUES (?, ?, ?, ?, ?, ?, ?)";
