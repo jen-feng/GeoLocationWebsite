@@ -48,4 +48,5 @@
         // For this it is made to point back to the register file if registering has failed.
         header("Location: https://www.cs4ww3-jenbiya.club/registration.php");
     }
+	$_POST = array();
 ?>

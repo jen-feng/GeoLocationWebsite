@@ -108,6 +108,7 @@ try {
 			//show error if response status not OK
 			echo "<strong>ERROR:{$resp['status']}</strong>";
 		}
+		$_POST = array();
 		
     } else {
         // This path is dependent on where the root of your documents is located.

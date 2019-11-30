@@ -45,4 +45,5 @@
 			echo $e->getMessage();
 		}
     }
+	$_POST = array();
 ?>

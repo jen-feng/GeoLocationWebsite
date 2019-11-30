@@ -48,6 +48,7 @@ try {
 	}
 
 	$table = $tables["table"];
+	$_POST = array();
 
 } catch(PDOException $e) {
 		echo "ERROR: ".$e->getMessage();
