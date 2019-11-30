@@ -34,10 +34,10 @@ try {
 //make html code of creating a table of reviews
 function createTable($allReviews) {		
 	$table = "";
-	require 'vendor/autoload.php';
+	require '/var/www/cs4ww3-jenbiya.club/vendor/autoload.php';
 	//setting up for s3 client to retrieve object
 	$s3 = new Aws\S3\S3Client([
-				'region'  => AWS_DEFAULT_REGION,
+				'region'  => 'us-east-1',
 				'version' => 'latest',
 				'credentials' => [
 					'key'    => AWS_ACCESS_KEY_ID,
