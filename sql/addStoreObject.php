@@ -42,7 +42,7 @@ try {
  				if ($stmnt->fetchColumn() != 0) {
 					//if exist, return back to the form
 					echo "The store you submitted is already in the data.";
-					echo "<meta http-equiv=\"refresh\" content=\"4;url=https://cs4ww3-jenbiya.club/submission.php\"/>";
+					echo "<meta http-equiv=\"refresh\" content=\"4;url=https://www.cs4ww3-jenbiya.club/submission.php\"/>";
 				} else {
 					$data = $_POST['phone'];
 					//reformat phone if not null
@@ -69,7 +69,7 @@ try {
 					if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
 							//insert the store image if there is one
 							$id = $pdo->lastInsertId();
-							if(isset($_FILES['imageupload'])){
+							if(isset($_FILES['imageupload']) && $_FILES['imageupload']['tmp_name']){
 								//get the file properties
 								//store file name using store id
 								$file_name = "store_".$id;
