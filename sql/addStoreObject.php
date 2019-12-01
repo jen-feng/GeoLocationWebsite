@@ -108,7 +108,8 @@
 			}
 		} else {
 			//show error if response status not OK
-			echo "<strong>ERROR:{$resp['status']}</strong>";
+			echo "<strong>ERROR:{$resp['status']}. Could not find valid location from entered coordinate</strong>";
+			echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/submission.php\"/>";
 		}
 		$_POST = array();
     }

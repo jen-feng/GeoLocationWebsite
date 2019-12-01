@@ -18,7 +18,7 @@
 				echo "<meta http-equiv=\"refresh\" content=\"4;url=http://localhost/signin.php\"/>";
 			} else {		
 				// Query we are using to check if the user is legit
-				$sql = "INSERT INTO users (email, passwordhash, firstname, lastname, user_id, date_created) VALUES (?, ?, ?, ?, ?, ?)";
+				$sql = "INSERT INTO users (email, passwordhash, firstname, lastname, user_id, date_created, phone) VALUES (?, ?, ?, ?, ?, ?, ?)";
 				// Prepared statements: For when we don't have all the parameters so we store a template to be executed
 				// More information here: https://www.w3schools.com/php/php_mysql_prepared_statements.asp
 				$stmnt = $pdo->prepare($sql);
@@ -31,7 +31,8 @@
 					$firstname = ucwords(strtolower($_POST['firstname']));
 					$lastname = ucwords(strtolower($_POST['lastname']));
 					$email = strtolower($_POST['email']);
-					if ($stmnt->execute([$email, $hashed, $firstname, $lastname, $uniqid, $date])) {
+					$phone = empty($_POST['phone']) ? "" : $_POST['phone'];
+					if ($stmnt->execute([$email, $hashed, $firstname, $lastname, $uniqid, $date, $phone])) {
 						//show success of registration
 						header("Location: ../registerSuccessPage.php");
 					}
@@ -51,10 +52,11 @@
 	$_POST = array();
 
 	function hashAndSalt($psw) {
-		//generat a random salt
+		//generat a random salt of length 23
 		$charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
 		$len = 23;
 		$salt = "";
+		//append 23 times of a random char from the charset
 		for ($i = 0; $i < $len; $i++) {
 			$salt = $salt.$charset[mt_rand(0, strlen($charset) - 1)];
 		}
