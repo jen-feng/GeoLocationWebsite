@@ -6,7 +6,10 @@ try {
 	$pdo = new PDO('mysql:host='.DB_SERVER.';dbname='.DB_DATABASE, DB_USERNAME, DB_PASSWORD);
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM reviews WHERE store_id = ? ORDER BY date DESC";
+	
+	//query to get all reviews for the corresponding store and join user table to get the usernames
+	$sql = "SELECT r.*,u.firstname, u.lastname FROM reviews r inner join users u using(user_id) WHERE store_id = ? ORDER BY date DESC ";
+	//query to get store info
 	$sql2 = "SELECT * FROM stores WHERE ID = ?";
 	
 	//check if store id is passed on
@@ -59,6 +62,7 @@ function createTable($allReviews) {
 								<img class="modal-content image" src='.$url.'>
 							</div>';
 		}
+		//append review to the table
 		$table = $table.
 		'<tr>
 			<td>
@@ -75,7 +79,7 @@ function createTable($allReviews) {
 				</div>
 			</td>
 			<td><p>'.$review['rating'].'</p></td>
-			<td>'.$review['user_id'].'</td>
+			<td><p>'.$review['firstname'].' '.substr($review['lastname'], 0, 1).'.</p></td>
 		</tr>';
 		$url = '';
 	}
