@@ -34,7 +34,7 @@
 					}
 				}
 				//check if execution successful
-				if ($stmnt->execute([$_SESSION['store_id'], $_SESSION['user_id'], $_POST['title'], $_POST['description'], $_POST['rating'], $hasImage, $date])) {
+				if ($stmnt->execute([$_SESSION['store_id'], $_SESSION['user_id'], $_POST['title'], htmlspecialchars($_POST['description']), $_POST['rating'], $hasImage, $date])) {
 					//insert the review image if there is one
 					$id = $pdo->lastInsertId();
 					$store_rating = updateStoreRating($pdo);
@@ -76,7 +76,7 @@
 						'id' => $id,
 						'title' => $_POST['title'],
 						'username' => $_SESSION['username'],
-						'description' => $_POST['description'],
+						'description' => htmlspecialchars($_POST['description']),
 						'rating' => $_POST['rating'],
 						'image' => $url,
 						'store_rating' => $store_rating
