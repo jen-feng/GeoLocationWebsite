@@ -18,7 +18,7 @@
 		      <div class="account user-name"><?php echo $_SESSION['username']; ?></div>
 			  <div class="account user-logout">
 					<small>
-						<a href="signout.php" style="color: red;">logout</a>
+						<a href="signout.php" style="color: red;">SignOut</a>
 					</small>
 			  </div>
 		  </div>
