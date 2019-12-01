@@ -24,7 +24,7 @@
 			
 			if ($user && password_verify($_POST['password'],  $user[0]['passwordhash'])) {
 				$_SESSION["loggedin"] = "OK";
-				$_SESSION["username"] = $user[0]['firstname'];
+				$_SESSION["username"] = $user[0]['firstname']." ".substr($user[0]['lastname'], 0, 1).".";
 				$_SESSION["user_id"] = $user[0]['user_id'];
 				
 				//check if user was in a page before then redirect back after signing in
