@@ -32,8 +32,8 @@
 			<div class="input-wrap">
               <label class="rf-label">Coordinates*</label>
               <div class="coordinates-container">
-			    <input type="number" step="any" class="rf-input latitude" id="latitude" name="latitude" placeholder="Latitude" onblur="validateLatitude()">
-			    <input type="number" step="any" class="rf-input longitude" id="longitude" name="longitude" placeholder="Longitude" onblur="validateLongitude()">
+			    <input required type="number" step="any" class="rf-input latitude" id="latitude" name="latitude" placeholder="Latitude" onblur="validateLatitude()">
+			    <input required type="number" step="any" class="rf-input longitude" id="longitude" name="longitude" placeholder="Longitude" onblur="validateLongitude()">
               </div>
               <label class="field-validation-error" id="error_msg_ll">This field is required.</label>
               <div class="button-container">
