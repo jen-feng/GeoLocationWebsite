@@ -16,6 +16,9 @@
       <div class="container-box">
         <div class="auth-form">
           <p class="title-form">Sign In</p>
+		  <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
+		    <p class="title-form"><a href="signout.php" style="color: red;">Sign out</a> to sign in another account</p>
+          <?php else : ?>
           <form action="sql/getUser.php" method="POST" name="RegistrationForm" onsubmit="return validateAuth();">
             <div class="input-wrap">
               <label class="field-validation-error" id="error_msg_email">Please enter your email address.</label>
@@ -30,6 +33,7 @@
             <input type="submit" name="signin" value="sign in">
           </form>
 		  <p>Don't have an account? <a href="registration.php">Register</a></p>
+		  <?php endif; ?>
         </div>
       </div>
     </div>

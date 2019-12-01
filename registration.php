@@ -16,6 +16,9 @@
       <div class="container-box">
         <div class="auth-form">
           <p class="title-form">Account Registration</p>
+          <?php  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "OK") : ?>
+            <p class="title-form"><a href="signout.php?redirect=registration" style="color: red;">Sign out</a> to register an account</p>
+		  <?php else : ?>
           <form action="sql/addUser.php" method="POST" name="RegistrationForm" onsubmit="return validateForm();">
             <div class="input-wrap">
               <label class="field-validation-error" id="error_msg_fn">This field is required.</label>
@@ -40,6 +43,7 @@
             <span class="register-legal">By continuing you confirm that you agree to the Terms of Use and confirm that you have read the Privacy Policy.</span>
             <input type="submit" name="register" value="register">
           </form>
+          <?php endif; ?>
         </div>
       </div>
     </div>
