@@ -41,8 +41,7 @@ $(document).ready(function() {
 												'</div>' +
 												'<div class="user-comments">' +
 													'<h2>'+ data.title + '</h2>' +
-													'<p>' + data.description + '<span id="dots">...</span><span class="more">vel erat posuere eleifend. Curabituum.</span></p>' +
-													'<button onclick="">Read more</button>' +
+													'<p>' + data.description + '</p>' +
 													imageHTML +
 												'</div>' +
 											'</div>' +

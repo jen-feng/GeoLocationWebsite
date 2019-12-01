@@ -66,7 +66,7 @@ try {
 				
 					//if insert successful, let the user know
 					$date = date('Y/m/d H:i:s');
-					if ($stmnt->execute([$title, $_POST['description'], $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
+					if ($stmnt->execute([$title, htmlspecialchars($_POST['description']), $lat, $lng, $formatted_address, $phone, $_POST['email'], $_POST['site'], $_SESSION['user_id'], $date])) {
 							//insert the store image if there is one
 							$id = $pdo->lastInsertId();
 							if(isset($_FILES['imageupload']) && $_FILES['imageupload']['tmp_name']){
