@@ -12,10 +12,11 @@ try {
 		//set to te lowest so all ratings can be retrieved (rating minimum 1)
 		$searchByRating = 0.0;
 	}
-
+	//table for appending new rows
 	$table = "";
 	$lat = "";
 	$lng = "";
+	//value to put the list of stores convert to json encode later
 	$locations = "";
 	$latLngKnown = false;
 	//check search input
@@ -31,14 +32,22 @@ try {
 			}
 		}
 	}
+	//check whether input was coordinates if not then set search by name
+	$name = "";
+	if (!$latLngKnown) {
+		$name = isset($_POST['search']) ? $_POST['search'] : "";
+		//get rid of characters other than numbers and letters
+		$name = strtolower(preg_replace("/[^A-Za-z0-9]/", "", $name));
+	}
+	
 	//query to get all stores from database
-	$sql = "SELECT ID, storename, description, latitude, longitude, phone, rating FROM stores WHERE rating >= ? ORDER BY rating DESC";
+	$sql = "SELECT ID, storename, description, address, latitude, longitude, phone, rating FROM stores WHERE rating >= ? ORDER BY rating DESC";
 	$stmnt = $pdo->prepare($sql);
 	$stmnt->execute([$searchByRating]);
 	$results = $stmnt->fetchAll(PDO::FETCH_ASSOC);
 	//funtion to create html table
 	//will return an array of tw value which the stores are the stores to show later and the other is the html table
-	$tables = createTable($results, $latLngKnown, $searchByRating);
+	$tables = createTable($results, $latLngKnown, $name);
 	
 	if (count($results) != 0) {
 		//encode for  later use in js script
@@ -68,7 +77,7 @@ function getDistanceInM($latO, $lngO, $latD, $lngD) {
 	return $angle * $earthRadius;
 }
 
-function createTable($stores, $coordinate, $baseRating) {
+function createTable($stores, $coordinate, $searchName) {
 	//first row of the table
 	$first = '<tr class="table-row">'.
 		'<th class="table-row store">Store</th>'.
@@ -76,8 +85,8 @@ function createTable($stores, $coordinate, $baseRating) {
 		'<th class="table-row ratings">Rating</th>'.
 		'</tr>';
 	$table = "";
-	//radius distance for search from user location
-	$maxRadius = 2000;
+	//radius distance for search from user location, 3km as standard
+	$maxRadius = 3000;
 	//number to show on the store title
 	$num = 1;
 	//helper index for the below array
@@ -87,8 +96,12 @@ function createTable($stores, $coordinate, $baseRating) {
 
 	//looping each store to create each row of the table
 	foreach ($stores as $store_row) {
-		if (!$coordinate || getDistanceInM($coordinate[0], $coordinate[1], $store_row['latitude'], $store_row['longitude']) < $maxRadius) {
-			//adding Element of each row for the table
+		//first check: no coordinates and no text in search input -> show all existing stores
+		//second check: if search is not empty check if it matches the storename in database
+		//third check: if it is coordinates check if store is within the specify radius from the coordinate
+		if ((!$coordinate && empty($searchName)) || (!empty($searchName) ? isNameMatch($store_row['storename'], $searchName) : false)  || getDistanceInM($coordinate[0], $coordinate[1], $store_row['latitude'], $store_row['longitude']) < $maxRadius) {
+			//set contact info
+			$contact = $store_row['phone'] ? $store_row['phone'] : ($store_row['email'] ? $store_row['email'] : "N/A");			//adding Element of each row for the table
 			$table = $table.'<tr>
 					<td>
 						<!--div class to includes store image , name and other info-->
@@ -103,8 +116,8 @@ function createTable($stores, $coordinate, $baseRating) {
 							</div>
 						</div>
 					</td>
-					<td><p>'.$store_row['phone'].'</p></td>
-					<td>'.$store_row['rating'].'</td>
+					<td><p>'.$contact.'</p></td>
+					<td>'.round($store_row['rating'], 1).'</td>
 				</tr>';
 
 				//create a new array and add the store info 
@@ -127,6 +140,14 @@ function createTable($stores, $coordinate, $baseRating) {
 		$result[0]["table"] = $first.$table;
 	}
 	return $result[0];
+}
+
+//match store names from database and compare with the user search input
+function isNameMatch($storename, $searchName) {
+	//replace all symbols other than letters and numbers
+	$storename = strtolower(preg_replace("/[^A-Za-z0-9]/", "", $storename));
+	//check whether the input string contains in the storename or storename contains in the input string
+	return strpos($storename, $searchName) !== False || strpos($searchName, $storename) !== False;
 }
 
 ?>
