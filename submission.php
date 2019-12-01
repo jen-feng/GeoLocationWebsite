@@ -42,7 +42,7 @@
             </div>
 			<div class="input-wrap">
               <label class="rf-label">Phone number (optional)</label>
-              <input type="text" class="rf-input phone" name="phone" placeholder="123 456 7890" onblur="validatePhone()">
+              <input type="text" class="rf-input phone" name="phone" placeholder="123 456 7890" onblur="validatePhone('')">
               <label class="field-validation-error" id="error_msg_p"></label>
             </div>
 			<div class="input-wrap">

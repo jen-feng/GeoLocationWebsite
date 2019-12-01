@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../additional_files/registrationPage.css" >
     <script type="text/javascript" src="../additional_files/validateRegistrationForm.js"></script>
+    <script type="text/javascript" src="../additional_files/validateSubmission.js"></script>
     <title>
       Registration Form
     </title>
@@ -34,6 +35,11 @@
               <label class="field-validation-error" id="error_msg_email">Please enter a valid email address.</label>
               <input type="email" class="rf-input email-input" name="email" placeholder="example@example.com" onblur="validateEmail()">
               <label class="rf-label email-label">Email address</label>
+            </div>
+            <div class="input-wrap">
+              <label class="field-validation-error" id="error_msg_p">Must be valid phone number</label>
+              <input type="text" class="rf-input phone-input" name="phone" id="phone" placeholder="Phone number(optional)" onblur="validatePhone('register')">
+              <label class="rf-label password-label">Phone number(optional)</label>
             </div>
             <div class="input-wrap">
               <label class="field-validation-error" id="error_msg_psw">Must be at least 8 characters long.</label>

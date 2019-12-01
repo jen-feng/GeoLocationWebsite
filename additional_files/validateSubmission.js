@@ -1,6 +1,6 @@
 function validateStoreForm() {
 	var x = false;
-	x = validateTitle() && validateDescription() && validateLongitude() && validateLatitude() && validateImageSize();
+	x = validateTitle() && validateDescription() && validateLongitude() && validateLatitude() && validateImageSize() && validateEmail() && validatePhone() && validateWebsite();
 	return x;
 }
 
@@ -131,8 +131,8 @@ function handleError(error) {
 	element.style.display = "block";
 }
 
-function validatePhone() {
-	var form = document.SubmissionForm;
+function validatePhone(formType) {
+	var form = formType ? document.RegistrationForm : document.SubmissionForm;
 	element = document.getElementById("error_msg_p");
 	phone = form.phone.value;
 	//regulaer expression for canada phone
