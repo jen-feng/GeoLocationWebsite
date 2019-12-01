@@ -68,8 +68,7 @@ function createTable($allReviews) {
 					</div>
 					<div class="user-comments">
 						<h2>'.$review['title'].'</h2>
-						<p>'.$review['reviewtext'].'<span id="dots">...</span><span class="more">vel erat posuere eleifen rutrum massa quis elit consectetur dictum.</span></p>
-						<button onclick="">Read more</button>
+						<p>'.$review['reviewtext'].'</p>
 						'.$image.'
 					</div>
 				</div>
