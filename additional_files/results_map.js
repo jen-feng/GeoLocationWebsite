@@ -1,33 +1,26 @@
 var map;
 
 function initMap() {
-	//hard-coded lattitude and longitude for Pet Valu for now
-	var location = {lat: 43.2626744, lng: -79.9526672};
+	//lati and lngi are from the previous script
+	var location = {lat: lati, lng: lngi};
 	
 	//Create a map centered in the defined location
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: location, //center the map with the defined location
 		zoom: 14  // zoom level 14 is close to city view 
 	});
-	
-	//use PlcaesService to get details
-	var service = new google.maps.places.PlacesService(map);
 
-	// Perform a text search which will return a list of places
-	service.textSearch({
-		//a hardcoded key words for now
-		location: location, query: 'pet in dundas', locationBias: 1500},
-		function(results, status) {
-			if (status == google.maps.places.PlacesServiceStatus.OK) {
-				//set the markers return from the list of places
-				createMarkers(results);
-			}
-		}
-	);	
+	//add markers
+	//locations is also from the previous script
+	if (locations != null) {
+		createMarkers(locations);
+	}
+
 }
 
 function createMarkers(places) {
 	var infowindow = new google.maps.InfoWindow();
+	bounds  = new google.maps.LatLngBounds();
 	//setting up the markers for each location from the list
 	for (var i = 0, place; place = places[i]; i++) {
 		var st = String(i + 1);
@@ -36,8 +29,8 @@ function createMarkers(places) {
 			map: map,
 			animation: google.maps.Animation.DROP,
 			//set marker by location
-			position: place.geometry.location,
-			title: place.name,
+			position: {lat: place.latitude, lng: place.longitude},
+			title: place.storename,
 			//set the label in numbers
 			label: {
 				color: 'white',
@@ -45,17 +38,18 @@ function createMarkers(places) {
 				text: st
 			}
 		});
+		loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 
 		//show info window when click
 		google.maps.event.addListener(marker, 'click', (function(marker, place) {
 			return function() {
 				//concatinate the info and html elements for the info window
 				var contentString = '<div class="info_content">' +
-					'<h3>' + place.name + '</h3>' +
+					'<h3>' + place.storename + '</h3>' +
 					'<p>' +  Math.round( place.rating * 10 ) / 10 + '</p>' + 
-					'<p>' + place.formatted_address + '</p>' +
-					'<p><a href=\"individual_sample.html?place_id=' +
-					place.place_id + '\">Learn more</a></p>'
+					'<p>' + place.address + '</p>' +
+					'<p><a href=\"individual_sample.php?store_id=' +
+					place.ID + '\">Learn more</a></p>'
 					'</div>';
 				//set the above content to the window 
 				infowindow.setContent(contentString);
@@ -64,5 +58,11 @@ function createMarkers(places) {
 				infowindow.open(map, marker);
 			}
 		}) (marker, place));
+		bounds.extend(loc);
 	}
+
+	//to show the map that fit all makers
+	map.fitBounds(bounds);
+	//to show zoom in according the bounding of the markers on map
+	map.panToBounds(bounds);
 }

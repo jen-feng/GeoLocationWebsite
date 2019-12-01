@@ -10,8 +10,7 @@ function getLocation() {
 function showPosition(position) {
 	//set the search bar value to be longitude and latitude got from the navigator.geolocation
 	var element = document.getElementById('search');
-	element.value = "Latitude: " + position.coords.latitude + 
-	" Longitude: " + position.coords.longitude;
+	element.value = position.coords.latitude + "," + position.coords.longitude;
 	//hide error msg
 	element = document.getElementById("error_msg_ll");
 	element.style.display = "none";

@@ -4,12 +4,19 @@ function validateForm() {
 	return x;
 }
 
+//validate sign in input
+function validateAuth() {
+	var x = false;
+	x = validateEmail() && validatePassword();
+	return x;
+}
+
 function validateFirstName() {
 	var form = document.RegistrationForm;
 	//this element is the error message for validating the first name
 	element = document.getElementById("error_msg_fn");
 	//only letters
-	var regex = /^[a-z]+$/ ; 
+	var regex = /^[a-z\ ]+$/ ; 
 	if (form.firstname.value != "") {
 		//check the input whether it satisfies the regular expression
 		if (regex.test(String(form.firstname.value).toLowerCase())) {
@@ -18,7 +25,7 @@ function validateFirstName() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters.";
+			element.innerHTML = "Field can only include letters and spaces.";
 		}
 	}
 	//show error message
@@ -32,7 +39,7 @@ function validateLastName() {
 	//this element is the error message for validating last name
 	element = document.getElementById("error_msg_ln");
 	//only letters
-	var regex = /^[a-z]+$/ ; 
+	var regex = /^[a-z\ ]+$/ ; 
 	if (form.lastname.value != "") {
 		//check the input whether it satisfies the regular expression
 		if (regex.test(String(form.lastname.value).toLowerCase())) {
@@ -41,7 +48,7 @@ function validateLastName() {
 			element.style.display = "none";
 			return true;
 		} else {
-			element.innerHTML = "Field can only include letters.";
+			element.innerHTML = "Field can only include letters and spaces.";
 		}
 	}
 	//show error message
@@ -76,14 +83,14 @@ function validatePassword() {
 	//this element is the error message for validating password
 	element = document.getElementById("error_msg_psw");
 	//password just need to be at least 8 characters long
-	if (form.usrpsw.value != "" && form.usrpsw.value.length >= 8) {
+	if (form.password.value != "" && form.password.value.length >= 8) {
 		//hide error message
-		form.usrpsw.style.outline = "none";
+		form.password.style.outline = "none";
 		element.style.display = "none";
 		return true;
 	}
 	//show error message
-	form.usrpsw.style.outline = "1px solid red";
+	form.password.style.outline = "1px solid red";
 	element.style.display = "block";
 	return false;
 }
