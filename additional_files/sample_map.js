@@ -15,19 +15,19 @@ function initMap() {
 	document.getElementById("map_title").innerHTML = place.storename;
 	document.getElementById("rating").innerHTML = Math.round( place.rating * 10 ) / 10;
 	document.getElementById("address").innerHTML = place.address;
-	if (place.website != '' ) {
+	if (place.website) {
 		document.getElementById("phone").innerHTML =  place.phone;
 	}
 	else {
 		document.getElementById("phone").innerHTML = "N/A";
 	}
-	if (place.website != '' ) {
+	if (place.website) {
 		document.getElementById("website").innerHTML =  "<a href=\"" + place.website + "\">" + place.website + "</a>";
 	}
 	else {
 		document.getElementById("website").innerHTML = "N/A";
 	}
-	if (place.email != '' ) {
+	if (place.email) {
 		document.getElementById("email").innerHTML =   place.email;
 	}
 	else {
