@@ -52,6 +52,9 @@ $(document).ready(function() {
 									'</tr>';
 					//append the new html row for new submitted review
 					$('#table_data').prepend(html);
+					//update store rating
+					$("#rating").empty().load('html');
+					document.getElementById("rating").innerHTML = Math.round( data.store_rating * 10 ) / 10;
 					//reset the form after
 					$('#reviewForm')[0].reset();
 					//close the reviewForm page afte successfully submitted

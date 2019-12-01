@@ -37,6 +37,7 @@
 				if ($stmnt->execute([$_SESSION['store_id'], $_SESSION['user_id'], $_POST['title'], $_POST['description'], $_POST['rating'], $hasImage, $date])) {
 					//insert the review image if there is one
 					$id = $pdo->lastInsertId();
+					$store_rating = updateStoreRating($pdo);
 					$url = '';
 					//if there is image upload to s3
 					if ($hasImage) {
@@ -77,7 +78,8 @@
 						'username' => $_SESSION['username'],
 						'description' => $_POST['description'],
 						'rating' => $_POST['rating'],
-						'image' => $url
+						'image' => $url,
+						'store_rating' => $store_rating
 					));
 
 					echo $output;
@@ -91,4 +93,18 @@
 	}
 	$_POST = array();
 	$_FILES = array();
+	
+function updateStoreRating($pdo) {
+	//calculate average ratings from user reviews
+	$s1 = "SELECT AVG(rating) FROM reviews WHERE store_id = ?";
+	//update value of store rating using the avg value get from above statement
+	$s2 = "UPDATE stores SET rating = ? WHERE ID = ?";
+	$stmnt = $pdo->prepare($s1);
+	$stmnt->execute([$_SESSION['store_id']]);
+	$store_rating = $stmnt->fetchColumn();
+
+	$stmnt = $pdo->prepare($s2);
+	$stmnt->execute([$store_rating, $_SESSION['store_id']]);
+	return $store_rating;
+}
 ?>

@@ -47,7 +47,6 @@ function initMap() {
 	//concatinate the info and html elements for the info window
 	var contentString = '<div class="info_content">' +
 		'<h3>' + place.storename + '</h3>' +
-		'<p>' +  Math.round( place.rating * 10 ) / 10 + '</p>' +
 		'<p>' + place.address + '</p>' +
 		'</div>';
 	google.maps.event.addListener(marker, 'click', (function(marker, place) {
