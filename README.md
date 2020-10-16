@@ -5,9 +5,8 @@ Link to live server: https://www.cs4ww3-jenbiya.club/
 Git repo: https://github.com/jen-feng/GeoLocationWebsite
 
 ### Developers:
-  - Jenny Feng Chen 400011633 CS 4ww3
-  - Biya Kazmi 400018251 CS 4ww3
-
+  - Jenny Feng Chen 
+  - Biya Kazmi 
 ### Add on task done
 Using ajax to update the review table, works with uploading images
 
